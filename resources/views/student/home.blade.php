@@ -1,0 +1,1 @@
+<x-app-layout><h2>student Home</h2></x-app-layout>

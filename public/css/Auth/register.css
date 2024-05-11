@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,600&display=swap');
+
+* {
+    font-family: 'Poppins',sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f8ea; /* Background color */
+}
+
+.container {
+    background-color: #1c3e3d; /* Form background color */
+    border-radius: 10px;
+    padding: 15px 110px 5px 110px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    width: 350px;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h3{
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.logo img {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+}
+
+.register-form label{
+    color:white;
+}
+
+
+
+.register-form input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.register-form div {
+    margin-top:5px;
+}
+
+.login {
+    color: white;
+    text-align: center;
+}
+
+.login a {
+    color: white; /* Link color */
+}
+
+.login p {
+    margin-top:0px; /* Link color */
+}
+
+.container h3{
+    color: white;
+}
+
+button {
+    background-color: #acb984; /* Button background color */
+    color: black; /* Button text color */
+    border-radius: 2px;
+    cursor: pointer;
+    display: block; /* Ensures the button takes up full width */
+    padding: 5px 20px;
+    margin: 0 auto;
+    
+}
+
+button:hover {
+    background-color: #5555cc; /* Button hover background color */
+}

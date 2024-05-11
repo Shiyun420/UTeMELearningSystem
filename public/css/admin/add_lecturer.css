@@ -1,0 +1,42 @@
+.form-container {
+    width: 800px; /* Set the width of the form container */
+    margin-left:20px;
+    
+}
+
+.form-group {
+    margin-bottom: 15px; /* Add space between form groups */
+}
+
+label {
+    display: inline-block;
+    width: 180px; /* Set the width of the labels */
+}
+
+input {
+    width: 280px; /* Set the width of the inputs and buttons */
+    padding: 2px; /* Add padding to inputs and buttons */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.btn-submit{
+    background-color: #7d8a56; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 5px 20px; 
+    margin-left:200px;
+    margin-top:5px;
+}
+
+/* Remove underline from anchor tags */
+.breadcrumb-item a {
+    text-decoration: none;
+    color:black;
+}
+
+/* Make the text of the current page bolder */
+.breadcrumb-item.active {
+    font-weight: bolder;
+    color:black;
+}

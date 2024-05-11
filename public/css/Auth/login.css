@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,600&display=swap');
+
+* {
+    font-family: 'Poppins',sans-serif;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f8ea; /* Background color */
+}
+
+.container {
+    background-color: #1c3e3d; /* Form background color */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    width: 350px;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+}
+
+.login-form label{
+    color:white;
+}
+
+
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.sign-up {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+}
+
+.sign-up a {
+    color: white; /* Link color */
+}
+
+.container h3{
+    color: white;
+}
+
+button {
+    background-color: #acb984; /* Button background color */
+    color: black; /* Button text color */
+    border-radius: 2px;
+    cursor: pointer;
+    display: block; /* Ensures the button takes up full width */
+    margin: 0 auto;
+    padding: 5px 20px;
+    
+}
+
+button:hover {
+    background-color: #5555cc; /* Button hover background color */
+}
