@@ -19,6 +19,9 @@ class HomeController extends Controller
             else if(Auth::user()->userType=='admin'){
                 return view('admin.home');
             }
+            else if(Auth::user()->userType=='lecturer'){
+                return view('lecturer.home');
+            }
         }else{
             return redirect()->back();
         }
