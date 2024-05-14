@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\LecturerController;
+
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Student\LessonController;
 use App\Http\Controllers\Student\AssignmentController;
@@ -11,6 +12,13 @@ use App\Http\Controllers\Student\QuizController;
 use App\Http\Controllers\Student\AttendanceController;
 use App\Models\Attendance;
 use App\Models\Quiz;
+
+use App\Http\Controllers\Lecturer\LessonController;
+use App\Http\Controllers\Lecturer\QuizController;
+use App\Http\Controllers\Lecturer\AttendanceController;
+use App\Http\Controllers\Lecturer\AnnouncementController;
+use App\Http\Controllers\Lecturer\AssignmentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +61,7 @@ Route::group([
     Route::get('course_details/{id}', [CourseController::class, 'course_details'])->name('course_details');
 
 });
+
 Route::group([
     'prefix' => 'student',
     'as' => 'student.',
@@ -75,3 +84,22 @@ Route::post('/quizzes/submit/{id}', [QuizController::class, 'submitQuiz'])->name
 Route::get('/attendance', [AttendanceController::class, 'showAttendance'])->name('attendance');
 })
 ;
+
+
+Route::group([
+    'prefix' => 'lecturer',
+    'as' => 'lecturer.',
+    'namespace' => 'Lecturer'
+], function () {
+    Route::get('/view_lesson', [LessonController::class, 'view_lesson'])->name('view_lesson');
+    Route::get('/add_lesson', [LessonController::class, 'add_lesson'])->name('add_lesson');
+    Route::get('/quiz_index', [QuizController::class, 'index'])->name('quiz_index');
+    Route::get('/quiz_details', [QuizController::class, 'details'])->name('quiz_details');
+    Route::get('/add_question', [QuizController::class, 'add_question'])->name('add_question');
+    Route::get('/attendance_index', [AttendanceController::class, 'index'])->name('attendance_index');
+    Route::get('/announcement_index', [AnnouncementController::class, 'index'])->name('announcement_index');
+    Route::get('/assignment_index', [AssignmentController::class, 'index'])->name('assignment_index');
+    Route::get('/assignment_submission', [AssignmentController::class, 'assignment_submission'])->name('assignment_submission');
+    Route::get('/assignment_give_feedback', [AssignmentController::class, 'give_feedback'])->name('assignment_give_feedback');
+});
+
