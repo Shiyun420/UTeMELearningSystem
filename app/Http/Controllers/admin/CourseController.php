@@ -12,14 +12,14 @@ class CourseController extends Controller
 {
     public function showcourses(){
         $courses=Course::all();
-        
+
         return view('admin.course',compact('courses'));
-              
+
     }
 
     public function add_course(){
         return view('admin.add_course');
-              
+
     }
 
     public function register_course(Request $request)
@@ -37,7 +37,7 @@ class CourseController extends Controller
 
     public function course_details($id){
         $course=Course::find($id);
-        
+
         return view('admin.course_details',compact('course'));
     }
 }

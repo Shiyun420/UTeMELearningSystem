@@ -10,11 +10,11 @@ use App\Models\User;
 class HomeController extends Controller
 {
     public function redirect(){
-        
+
         if(Auth::id()){
             if(Auth::user()->userType=='student'){
 
-                return view('student.home');
+                return view('student.search_course');
             }
             else if(Auth::user()->userType=='admin'){
                 return view('admin.home');
@@ -25,7 +25,7 @@ class HomeController extends Controller
         }else{
             return redirect()->back();
         }
-        
-        
+
+
     }
 }
