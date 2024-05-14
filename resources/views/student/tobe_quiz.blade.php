@@ -24,15 +24,15 @@
 <div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('tobe_quiz') }}">Quiz</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('student.tobe_quiz') }}">Quiz</a></li>
         </ol>
     </nav>
 </div>
 
 <h3> <b>BITM 2113 WEB APPLICATION DEVELOPMENT</b> </h3>
 <div class="inline-h3">
-    <h3><a href="{{ route('tobe_quiz') }}" class="active">TO-BE-COMPLETED</a></h3>
-    <h3><a href="{{ route('completed_quiz') }}">COMPLETED</a></h3>
+    <h3><a href="{{ route('student.tobe_quiz') }}" class="active">TO-BE-COMPLETED</a></h3>
+    <h3><a href="{{ route('student.completed_quiz') }}">COMPLETED</a></h3>
 </div>
 
 <br>
@@ -52,7 +52,7 @@
                         <tr>
                             <td class="table-cell">
                                 {{ $quiz['title'] }}
-                                <a href="{{ route('start_quiz', ['id' => $quiz['id']]) }}">Start Quiz</a>
+                                <a href="{{ route('student.start_quiz', ['id' => $quiz['id']]) }}">Start Quiz</a>
                             </td>
                         </tr>
                         @endforeach

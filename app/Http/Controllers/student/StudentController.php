@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Student;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
@@ -28,7 +28,7 @@ class StudentController extends Controller
         return view('student.tobe_assignment');
     }
 
-    
+
 
 
     // Method to show attendance page

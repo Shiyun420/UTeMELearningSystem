@@ -13,7 +13,7 @@
 <div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('attendance') }}">Attendance</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('student.attendance') }}">Attendance</a></li>
         </ol>
     </nav>
 </div>

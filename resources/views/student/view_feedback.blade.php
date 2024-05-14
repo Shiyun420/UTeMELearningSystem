@@ -18,8 +18,8 @@
 <div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('assignment') }}">Assignment</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('completed_assignments') }}">Completed Assignments</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('student.assignment') }}">Assignment</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('student.completed_assignments') }}">Completed Assignments</a></li>
             <li class="breadcrumb-item active" aria-current="page">View Feedback</li>
         </ol>
     </nav>
@@ -29,7 +29,7 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <div class="back-button">
-                <a href="{{ route('completed_assignments') }}" class="btn btn-secondary">Back</a>
+                <a href="{{ route('student.completed_assignments') }}" class="btn btn-secondary">Back</a>
             </div>
             <div class="feedback-container">
                 <h3>Feedback for Assignment {{ $assignment->id }}</h3>

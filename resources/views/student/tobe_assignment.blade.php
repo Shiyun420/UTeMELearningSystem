@@ -24,15 +24,15 @@
 <div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('assignment') }}">Assignment</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('student.assignment') }}">Assignment</a></li>
         </ol>
     </nav>
 </div>
 
 <h3> <b>BITM 2223 Machine Learning</b> </h3>
 <div class="inline-h3">
-    <h3><a href="{{ route('tobe_completed') }}" class="active">TO-BE-COMPLETED</a></h3>
-    <h3><a href="{{ route('completed_assignments') }}">COMPLETED</a></h3>
+    <h3><a href="{{ route('student.tobe_completed') }}" class="active">TO-BE-COMPLETED</a></h3>
+    <h3><a href="{{ route('student.completed_assignments') }}">COMPLETED</a></h3>
 </div>
 
 <br>
@@ -53,13 +53,13 @@
                                 <tr>
                                     <td class="table-cell">
                                        Assignment 1: FlipGrid
-                                       <a href="{{ route('add_submission') }}">Add submission</a>
+                                       <a href="{{ route('student.add_submission') }}">Add submission</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell">
                                        Assignment 2: Mindmap
-                                       <a href="{{ route('add_submission') }}">Add submission</a>
+                                       <a href="{{ route('student.add_submission') }}">Add submission</a>
                                     </td>
                                 </tr>
                                 <!-- Add more rows as needed -->

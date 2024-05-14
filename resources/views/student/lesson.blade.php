@@ -13,7 +13,7 @@
 <div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('lesson') }}">Lesson</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('student.lesson') }}">Lesson</a></li>
         </ol>
     </nav>
 </div>
@@ -38,7 +38,7 @@
                                 <tr>
                                     <td class="table-cell">
                                         CHAPTER 1 INTRODUCTION TO HTML
-                                        <a href="{{ route('lesson_detail') }}">
+                                        <a href="{{ route('student.lesson_detail') }}">
 
                                             <i class="fas fa-eye"></i>
                                         </a>

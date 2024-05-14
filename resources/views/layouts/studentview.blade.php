@@ -19,8 +19,8 @@
            </button>
            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                <div class="navbar-nav">
-                   <a class="nav-link{{ Request::route()->named('search_course') ? ' active' : '' }}" aria-current="page" href="{{ route('search_course') }}"><i class="fas fa-search"></i> Search Course</a>
-                   <a class="nav-link{{ Request::route()->named('list_course') ? ' active' : '' }}" href="{{ route('list_course') }}">List Course</a>
+                   <a class="nav-link{{ Request::route()->named('search_course') ? ' active' : '' }}" aria-current="page" href="{{ route('student.search_course') }}"><i class="fas fa-search"></i> Search Course</a>
+                   <a class="nav-link{{ Request::route()->named('list_course') ? ' active' : '' }}" href="{{ route('student.list_course') }}">List Course</a>
                </div>
            </div>
               <div class="dropdown ms-auto">
@@ -42,16 +42,16 @@
       <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
         <div class="position-sticky">
             <div class="list-group list-group-flush mt-2">
-                <a href="{{ route('lesson') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('lesson') ? ' active' : '' }}" aria-current="true">
+                <a href="{{ route('student.lesson') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('lesson') ? ' active' : '' }}" aria-current="true">
                     <span>Lesson</span>
                 </a>
-                <a href="{{ route('assignment') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('tobe_completed') ? ' active' : '' }}">
+                <a href="{{ route('student.assignment') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('tobe_completed') ? ' active' : '' }}">
                     <span>Assignment</span>
                 </a>
-                <a href="{{ route('tobe_quiz') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('tobe_quiz') ? ' active' : '' }}">
+                <a href="{{ route('student.tobe_quiz') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('tobe_quiz') ? ' active' : '' }}">
                     <span>Quiz</span>
                 </a>
-                <a href="{{ route('attendance') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('attendance') ? ' active' : '' }}">
+                <a href="{{ route('student.attendance') }}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('attendance') ? ' active' : '' }}">
                     <span>Attendance</span>
                 </a>
             </div>

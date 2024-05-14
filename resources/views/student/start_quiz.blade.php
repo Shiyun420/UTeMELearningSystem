@@ -9,7 +9,7 @@
                     {{ $quiz['title'] }}
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('submit_quiz', ['id' => $quiz['id']]) }}" method="POST">
+                    <form action="{{ route('student.submit_quiz', ['id' => $quiz['id']]) }}" method="POST">
                         @csrf
                         @foreach($quiz['questions'] as $questionIndex => $question)
                         <p>{{ $question['question'] }}</p>
@@ -24,7 +24,7 @@
                         @endforeach
 
                   <button type="submit" class="btn btn-primary">Submit</button>
-                  <a href="{{ route('tobe_quiz') }}" class="btn btn-secondary">Back</a>
+                  <a href="{{ route('student.tobe_quiz') }}" class="btn btn-secondary">Back</a>
                </form>
             </div>
          </div>

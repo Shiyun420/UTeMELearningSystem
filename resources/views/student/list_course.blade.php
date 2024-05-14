@@ -26,7 +26,7 @@
                             <td>Database BITP1323</td>
                             <td>Nurul Izrin</td>
                             <td>
-                                <a href="{{ route('lesson') }}">
+                                <a href="{{ route('student.lesson') }}">
                                     <i class="fas fa-eye"></i>
                                 </a>
                                 <i class="fas fa-trash-alt"></i>
