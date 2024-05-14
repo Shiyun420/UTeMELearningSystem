@@ -5,11 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-      <link rel="stylesheet" href="{{url('css/lecturer/home.css')}}">
+      <link rel="stylesheet" href="{{url('css/layout/lecturerlayout.css')}}">
       <title>Document</title>
    </head>
    <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position:fixed; z-index:10; width:100%;">
          <div class="container-fluid custom-navbar">
             <a class="navbar-brand" href="#">
             <img src="/images/webdesign/utemelearninglogo.png" alt="Your Logo" style="width: 200px; height: auto;"> 
@@ -20,7 +20,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                <div class="navbar-nav">
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  <a class="nav-link" href="#">My Courses</a>
+                  <a class="nav-link" href="#">Features</a>
+                  <a class="nav-link" href="#">Pricing</a>
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                </div>
                <div class="dropdown ms-auto">
                   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,51 +39,31 @@
             </div>
          </div>
       </nav>
+      <!-- Sidebar -->
+      <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+         <div class="position-sticky" >
+            <div class="list-group list-group-flush mt-2" >
+               <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+               </i><span>Lesson</span>
+               </a>
+               <a href="{{ route('lecturer.assignment_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <span>Assignment</span>
+               </a>
+               <a href="{{ route('lecturer.quiz_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <span>Quiz</span>
+               </a>
+               <a href="{{ route('lecturer.attendance_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <span>Attendance</span>
+               </a>
+               <a href="{{ route('lecturer.announcement_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <span>Announcement</span>
+               </a>
+            </div>
+         </div>
+      </nav>
+      <!-- Sidebar -->
       <main>
-         <table class="mx-auto">
-            <thead style="background-color:#acb984;">
-               <tr>
-                  <th scope="col" class="p-2">COURSE</th>
-                  <th scope="col" class="p-2" style="width:100px;">ACTIONS</th>
-                  <!-- Add a new table header for actions -->
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td class="p-2">BITP 2113 Machine Learning</td>
-                  <td>
-                     <!-- Button group with icons for view, edit, delete -->
-                     <div class="d-flex justify-content-between p-2">
-                        <a href="{{ route('lecturer.view_lesson') }}">
-                        <i class="fas fa-eye"></i>
-                        </a>
-                     </div>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="p-2">BITP 2113 Machine Learning</td>
-                  <td>
-                     <!-- Button group with icons for view, edit, delete -->
-                     <div class="d-flex justify-content-between p-2">
-                        <a href="#">
-                        <i class="fas fa-eye"></i>
-                        </a>
-                     </div>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="p-2">BITP 2113 Machine Learning</td>
-                  <td>
-                     <!-- Button group with icons for view, edit, delete -->
-                     <div class="d-flex justify-content-between p-2">
-                        <a href="#">
-                        <i class="fas fa-eye"></i>
-                        </a>
-                     </div>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
+         @yield('content') <!-- Inject content here -->
       </main>
    </body>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
