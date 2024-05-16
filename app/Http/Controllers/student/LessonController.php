@@ -11,7 +11,7 @@ class LessonController extends Controller
     {
 
         // Pass the lesson data to the view
-        return view('student.lesson_detail');
+        return view('student.lesson.lesson_detail');
     }
 }
 

@@ -2,21 +2,14 @@
 
 @section('content')
 <link rel="stylesheet" href="{{url('css/student/search_course.css')}}">
-<style>
-    .table-cell {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-</style>
 
-<div>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('student.lesson') }}">Lesson</a></li>
-        </ol>
-    </nav>
-</div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="">BITM 2223 WEB APPLICATION DEVELOPMENT</a></li>  
+    <li class="breadcrumb-item"><a href="#">Lesson</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Chapter 1: Intro to HTML</li>
+  </ol>
+</nav>
 
 <h2><b> CHAPTER 1 INTRODUCTION TO HTML </h2><br>
 <h4><b> Learning Outcome</h4>

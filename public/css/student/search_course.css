@@ -5,25 +5,101 @@
 }
 
 table, th, td,tr {
- border: 2px solid #1c3e3d;
-
-  }
+    border: 2px solid #1c3e3d;
+}
 
 
 .table {
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
 
 }
 
- .search-btn {
-    background-color: #7d8a56; /* Button background color */
-    color: white; /* Button text color */
-    border-radius: 20px;
+.search-container {
+    display: flex;
+    justify-content: flex-end;  /* Align items to the end of the row */
+    padding: 10px; /* Optional: Add some padding */
+    margin-right:90px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    width: 200px;
+}
+
+.search-btn {
+    padding: 8px;
+    font-size: 16px;
+    background-color: #7d8a56;
+    color: white;
+    border: 1px solid #7d8a56;
+    border-radius: 0 4px 4px 0;
     cursor: pointer;
-    padding: 5px 120px;
-    margin-bottom:10px;
-    margin-left:900px;
+    outline: none;
+}
 
 
+.search-btn i {
+    margin-right: 4px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 15px;
+}
+
+.btn-details {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7d8a56;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color:black;
+}
+/* Make the text of the current page bolder */
+.breadcrumb-item.active {
+    font-weight: bolder;
+    color:black;
 }

@@ -19,13 +19,13 @@ class StudentController extends Controller
     public function showLesson()
     {
         // Add logic to fetch lesson details if necessary
-        return view('student.lesson');
+        return view('student.lesson.lesson');
     }
 
     // Method to show assignment page
     public function showAssignment()
     {
-        return view('student.tobe_assignment');
+        return view('student.assignment.tobe_assignment');
     }
 
 

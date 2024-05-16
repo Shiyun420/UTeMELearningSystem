@@ -8,31 +8,25 @@
         justify-content: space-between;
         align-items: center;
     }
-    .inline-h3 h3 {
+    .inline-h3 h6 {
         display: inline-block;
         margin-right: 20px; /* Add space between headings if needed */
     }
-    .inline-h3 h3 a {
+    .inline-h3 h6 a {
         color: black;
     }
-    .inline-h3 h3 a.active {
+    .inline-h3 h6 a.active {
         font-weight: bold; /* Make the active link bold */
         text-decoration: underline; /* Underline the active link */
     }
 </style>
 
-<div>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('student.tobe_quiz') }}">Quiz</a></li>
-        </ol>
-    </nav>
-</div>
+
 
 <h3> <b>BITM 2113 WEB APPLICATION DEVELOPMENT</b> </h3>
 <div class="inline-h3">
-    <h3><a href="{{ route('student.tobe_quiz') }}" class="active">TO-BE-COMPLETED</a></h3>
-    <h3><a href="{{ route('student.completed_quiz') }}">COMPLETED</a></h3>
+    <h6><a href="{{ route('student.tobe_quiz') }}" class="active">TO-BE-COMPLETED</a></h6>
+    <h6><a href="{{ route('student.completed_quiz') }}">COMPLETED</a></h6>
 </div>
 
 <br>
