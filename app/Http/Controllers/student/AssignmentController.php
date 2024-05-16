@@ -11,18 +11,18 @@ class AssignmentController extends Controller
     public function showToBeCompleted()
     {
         // Logic to fetch the "to-be-completed" assignments
-        return view('student.tobe_assignment');
+        return view('student.assignment.tobe_assignment');
     }
 
     public function showCompleted()
     {
         // Logic to fetch the "completed" assignments
-        return view('student.completed_assignments');
+        return view('student.assignment.completed_assignments');
     }
 
     public function showSubmissionForm()
     {
-        return view('student.add_submission');
+        return view('student.assignment.add_submission');
     }
 
     // Method to submit the assignment
@@ -56,15 +56,9 @@ class AssignmentController extends Controller
     }
     public function viewFeedback($id)
     {
-        $assignment = Submission::find($id);
-        if (!$assignment) {
-            abort(404, 'Assignment not found');
-        }
+      
 
-        // Assuming the feedback is stored as a field in the Assignment model
-        $feedback = $assignment->feedback;
-
-        return view('student.view_feedback', compact('assignment', 'feedback'));
+        return view('student.assignment.view_feedback');
     }
 }
 

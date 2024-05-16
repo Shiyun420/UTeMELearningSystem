@@ -10,13 +10,6 @@
     }
 </style>
 
-<div>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('student.attendance') }}">Attendance</a></li>
-        </ol>
-    </nav>
-</div>
 
 <h3> <b> BITI 2223 Machine Learning</b> </h3>
 

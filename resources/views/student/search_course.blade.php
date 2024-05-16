@@ -3,9 +3,13 @@
 @section('content')
 <link rel="stylesheet" href="{{url('css/student/search_course.css')}}">
 
-<a href="{{ route('admin.add_lecturer') }}">
-    <button class="search-btn"><i class="fas fa-search"></i>Search</button>
-</a>
+<div class="search-container">
+        <form action="" method="GET" class="search-form">
+            <input type="text" name="search" class="search-input" placeholder="Search..." required>
+            <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+        </form>
+</div>
+
 
 
 <div class="container">

@@ -8,7 +8,7 @@ class AttendanceController extends Controller
 {
     public function showAttendance()
     {
-        return view('student.attendance');
+        return view('student.attendance.attendance');
     }
 
 }

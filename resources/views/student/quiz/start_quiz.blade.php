@@ -1,18 +1,27 @@
 @extends('layouts.studentview')
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    {{ $quiz['title'] }}
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('student.submit_quiz', ['id' => $quiz['id']]) }}" method="POST">
+
+<style>
+    .btn-submit{
+    background-color: #7d8a56;
+   /* Button background color */
+    color: white;
+   /* Button text color */
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin-left:350px;
+    margin-top:5px;
+}
+</style>
+
+<h3>Quiz 1: Intro to HTML</h3>
+
+<form action="{{ route('student.submit_quiz', ['id' => $quiz['id']]) }}" method="POST">
                         @csrf
                         @foreach($quiz['questions'] as $questionIndex => $question)
-                        <p>{{ $question['question'] }}</p>
+                        <p>1 {{ $question['question'] }}</p>
                         <div>
                             @foreach($question['options'] as $optionKey => $option)
                             <label>
@@ -23,12 +32,9 @@
                         </div>
                         @endforeach
 
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn-submit">Submit</button>
                   <a href="{{ route('student.tobe_quiz') }}" class="btn btn-secondary">Back</a>
                </form>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+
+                    
 @endsection

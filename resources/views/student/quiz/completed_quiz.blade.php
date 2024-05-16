@@ -8,19 +8,27 @@
         justify-content: space-between;
         align-items: center;
     }
+    .inline-h3 h6 {
+        display: inline-block;
+        margin-right: 20px; /* Add space between headings if needed */
+    }
+    .inline-h3 h6 a {
+        color: black;
+    }
+    .inline-h3 h6 a.active {
+        font-weight: bold; /* Make the active link bold */
+        text-decoration: underline; /* Underline the active link */
+    }
 </style>
 
-<div>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('student.lesson') }}">Lesson</a></li>
-        </ol>
-    </nav>
+
+<h3><b> BITM 2113 WEB APPLICATION DEVELOPMENT </b></h3>
+<div class="inline-h3">
+    <h6><a href="{{ route('student.tobe_quiz') }}">TO-BE-COMPLETED</a></h6>
+    <h6><a href="{{ route('student.completed_quiz') }}" class="active">COMPLETED</a></h6>
 </div>
 
-<h3> BITM 2113 WEB APPLICATION DEVELOPMENT </h3>
-<i class="fa-solid fa-volume-high"></i> ANNOUNCEMENT
-<p> Tuesday class is cancelled</p>
+<br>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -29,7 +37,7 @@
                 <table class="table">
                     <thead style="background-color:#acb984;">
                         <tr>
-                            <th scope="col">My Lessons</th>
+                            <th scope="col">Quiz</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,31 +45,23 @@
                             <tbody>
                                 <tr>
                                     <td class="table-cell">
-                                        CHAPTER 1 INTRODUCTION TO HTML
-                                        <a href="{{ route('student.lesson_detail') }}">
-
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                       Quiz 4 : What is CSS
+                                       <a href="">View Score</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell">
-                                        CHAPTER 2 CSS
-                                        <a href="#">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                        Quiz 5 : Javascript Syntax
+                                       <a href="">View Score</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell">
-                                        CHAPTER 3 JAVASCRIPT
-                                        <a href="#">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                        Quiz 6 : HTML Tags
+                                       <a href="">View Score</a>
                                     </td>
                                 </tr>
                                 <!-- Add more rows as needed -->
-
                     </tbody>
                 </table>
             </div>

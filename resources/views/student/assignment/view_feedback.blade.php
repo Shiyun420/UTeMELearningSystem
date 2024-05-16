@@ -28,12 +28,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-8">
-            <div class="back-button">
-                <a href="{{ route('student.completed_assignments') }}" class="btn btn-secondary">Back</a>
-            </div>
             <div class="feedback-container">
-                <h3>Feedback for Assignment {{ $assignment->id }}</h3>
-                <p>{{ $feedback }}</p>
+                <h3>Feedback for Assignment</h3>
+                <p>jowwodhw jodwjdojwf ojfpejfpejfe</p>
             </div>
         </div>
     </div>

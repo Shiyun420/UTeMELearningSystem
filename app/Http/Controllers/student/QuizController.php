@@ -14,7 +14,7 @@ class QuizController extends Controller
             ['id' => 3, 'title' => 'Quiz 3'],
             // Add more quizzes as needed
         ];
-        return view('student.tobe_quiz', compact('quizzes'));
+        return view('student.quiz.tobe_quiz', compact('quizzes'));
     }
 
     public function Completed()
@@ -26,7 +26,7 @@ class QuizController extends Controller
             ['id' => 3, 'title' => 'Quiz 3'],
             // Add more quizzes as needed
         ];
-        return view('student.completed_quiz', compact('quizzes'));
+        return view('student.quiz.completed_quiz', compact('quizzes'));
     }
     public function start($id)
     {
@@ -47,7 +47,7 @@ class QuizController extends Controller
         ]
         ];
 
-        return view('student.start_quiz', compact('quiz'));
+        return view('student.quiz.start_quiz', compact('quiz'));
     }
     public function submitQuiz(Request $request, $id)
     {
