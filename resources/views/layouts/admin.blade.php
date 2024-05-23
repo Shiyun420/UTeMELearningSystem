@@ -43,7 +43,7 @@
       <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
          <div class="position-sticky" >
             <div class="list-group list-group-flush mt-2" >
-               <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+               <a href="{{ route('admin.showlecturers') }}" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
                </i><span>Lecturer</span>
                </a>
                <a href="{{ route('admin.showcourses') }}" class="list-group-item list-group-item-action py-2 ripple">

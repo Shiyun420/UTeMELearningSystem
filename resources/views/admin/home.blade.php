@@ -16,40 +16,41 @@
     </tr>
   </thead>
   <tbody>
-  <tr>
-      <td class="p-2">Mark</td>
-      <td>
-        <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-        <i class="fas fa-eye"></i>  
-        <i class="fas fa-edit"></i>
-        <i class="fas fa-trash-alt"></i>
-      
-      </td>
-    </tr>
+    <!-- Example -->
+    <!-- 
     <tr>
       <td class="p-2">Mark</td>
       <td>
-        <!-- Button group with icons for view, edit, delete -->
         <div class="d-flex justify-content-between p-2">
         <i class="fas fa-eye"></i>  
         <i class="fas fa-edit"></i>
         <i class="fas fa-trash-alt"></i>
-      
+        </div>
       </td>
-    </tr>
-    <tr>
-      <td class="p-2">Mark</td>
-      <td>
-        <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-        <i class="fas fa-eye"></i>  
-        <i class="fas fa-edit"></i>
-        <i class="fas fa-trash-alt"></i>
-      
-      </td>
-    </tr>
-    <!-- Repeat the above row structure for each row in your table -->
+    </tr> 
+    -->
+
+    @foreach($lecturers as $lecturer)
+      <tr>
+          <td class="p-2">{{$lecturer->name}}</td>
+          
+          <td>
+            <!-- Button group with icons for view, edit, delete -->
+            <div class="d-flex justify-content-between p-2">
+              <a href="#">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="#">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a href="#">
+                <i class="fas fa-trash-alt"></i>
+              </a>
+            </div>
+          </td>
+      </tr>
+    @endforeach
+    
   </tbody>
 </table>
 

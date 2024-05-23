@@ -14,13 +14,16 @@ class HomeController extends Controller
         if(Auth::id()){
             if(Auth::user()->userType=='student'){
 
-                return view('student.search_course');
+                return redirect()->route('student.search_course');
             }
             else if(Auth::user()->userType=='admin'){
-                return view('admin.home');
+
+                $lecturers=User::where('usertype', 'lecturer')->get();
+
+                return view('admin.home', compact('lecturers'));
             }
             else if(Auth::user()->userType=='lecturer'){
-                return view('lecturer.home');
+                return redirect()->route('lecturer.home');
             }
         }else{
             return redirect()->back();

@@ -21,18 +21,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Database BITP1323</td>
-                            <td>Nurul Izrin</td>
-                            <td>
-                                <a href="{{ route('student.lesson') }}">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <i class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
                         <!-- Repeat the above row structure for each row in your table -->
+                        @foreach($enrolledCourses as $index => $enrolledCourse)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $enrolledCourse->course_code }} {{ $enrolledCourse->course_name }}</td>
+                                <td>{{ $enrolledCourse->lecturer_name }}</td>
+                                <td><a href="{{route('student.lesson')}}"><i class="fas fa-eye"></i></a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
 
                 </table>

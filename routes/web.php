@@ -11,6 +11,7 @@ use App\Http\Controllers\Student\AssignmentController as StudentAssignmentContro
 use App\Http\Controllers\Student\QuizController as StudentQuizController;
 use App\Http\Controllers\Student\AttendanceController as StudentAttendanceController;
 
+use App\Http\Controllers\Lecturer\LecturerHomeController;
 use App\Http\Controllers\Lecturer\LessonController as LecturerLessonController;
 use App\Http\Controllers\Lecturer\QuizController as LecturerQuizController;
 use App\Http\Controllers\Lecturer\AttendanceController as LecturerAttendanceController;
@@ -56,6 +57,7 @@ Route::group([
     Route::post('register_lecturer', [LecturerController::class, 'register_lecturer'])->name('register_lecturer');
     Route::post('register_course', [CourseController::class, 'register_course'])->name('register_course');
     Route::get('course_details/{id}', [CourseController::class, 'course_details'])->name('course_details');
+    Route::post('/assign_lecturer',[CourseController::class,'assign_lecturer'])->name('assign_lecturer');
 
 });
 
@@ -66,6 +68,8 @@ Route::group([
 ], function () {
     Route::get('/list_course', [StudentController::class, 'listCourses'])->name('list_course');
     Route::get('/search_course', [StudentController::class, 'searchCourses'])->name('search_course');
+    Route::get('/course_details/{id}', [StudentController::class, 'course_details'])->name('course_details');
+    Route::post('/enroll_course',[StudentController::class,'enroll_course'])->name('enroll_course');
     Route::get('/lesson', [StudentController::class, 'showLesson'])->name('lesson');
     Route::get('/lessons/lesson_detail', [StudentLessonController::class, 'show'])->name('lesson_detail');
     Route::get('/add-submission', [StudentAssignmentController::class, 'showSubmissionForm'])->name('add_submission');
@@ -87,6 +91,7 @@ Route::group([
     'as' => 'lecturer.',
     'namespace' => 'Lecturer'
 ], function () {
+    Route::get('/home', [LecturerHomeController::class, 'home'])->name('home');
     Route::get('/view_lesson', [LecturerLessonController::class, 'view_lesson'])->name('view_lesson');
     Route::get('/add_lesson', [LecturerLessonController::class, 'add_lesson'])->name('add_lesson');
     Route::get('/quiz_index', [LecturerQuizController::class, 'index'])->name('quiz_index');

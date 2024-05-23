@@ -12,7 +12,9 @@ use App\Models\User;
 class LecturerController extends Controller
 {
     public function showlecturers(){
-        return view('admin.lecturer');
+        $lecturers = User::where('usertype', 'lecturer')->get();
+
+        return view('admin.lecturer', compact('lecturers'));
               
     }
     
