@@ -12,6 +12,7 @@ table, th, td,tr {
 .table {
     width: 800px;
     margin: 0 auto;
+    margin-top:20px;
 
 }
 
@@ -43,6 +44,18 @@ table, th, td,tr {
     color: white;
     border: 1px solid #7d8a56;
     border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.showAll-btn {
+    margin-right: 10px;
+    padding: 8px;
+    font-size: 16px;
+    background-color: #7d8a56;
+    color: white;
+    border: 1px solid #7d8a56;
+    border-radius: 4px 4px 4px 4px;
     cursor: pointer;
     outline: none;
 }

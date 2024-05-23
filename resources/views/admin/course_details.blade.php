@@ -15,18 +15,23 @@
         <h5 class="modal-title" id="exampleModalLabel">Assign Lecturer</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <select id="lecturerSelect">
-            <option value="">--Select--</option>    
-            <option value="">Noor Fazilla Binti Abd Yusof</option>
-            <option value="">Noor Fazilla Binti Abd Yusof</option>
-            <option value="">Noor Fazilla Binti Abd Yusof</option>
-        </select>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn assign-btn">Assign</button>
-      </div>
+      <form action="{{route('admin.assign_lecturer')}}" method="POST">
+        @csrf
+        <input name="courseID" value="{{$course->id}}" hidden>
+        <div class="modal-body">
+          <select name="lecturerID" id="lecturerSelect">
+              <option value="">--Select--</option>    
+              @foreach($lecturers as $lecturer)
+                <option value="{{$lecturer->id}}">{{$lecturer->name}}</option>
+              @endforeach
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn assign-btn">Assign</button>
+        </div>
+      </form>
+      
     </div>
   </div>
 </div>
@@ -51,40 +56,41 @@
     </tr>
   </thead>
   <tbody>
-  <tr>
+    <!--
+      <tr>
       <td class="p-2">Mark</td>
       <td>
-        <!-- Button group with icons for view, edit, delete -->
         <div class="d-flex justify-content-between p-2">
         <i class="fas fa-eye"></i>  
         <i class="fas fa-edit"></i>
         <i class="fas fa-trash-alt"></i>
-      
+        </div>
       </td>
     </tr>
-    <tr>
-      <td class="p-2">Mark</td>
-      <td>
-        <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-        <i class="fas fa-eye"></i>  
-        <i class="fas fa-edit"></i>
-        <i class="fas fa-trash-alt"></i>
-      
-      </td>
-    </tr>
-    <tr>
-      <td class="p-2">Mark</td>
-      <td>
-        <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-        <i class="fas fa-eye"></i>  
-        <i class="fas fa-edit"></i>
-        <i class="fas fa-trash-alt"></i>
-      
-      </td>
-    </tr>
+    -->
+
     <!-- Repeat the above row structure for each row in your table -->
+    @foreach($assigned_lecturers as $assigned_lecturer)
+      <tr>
+          <td class="p-2">{{$assigned_lecturer->name}}</td>
+          
+          <td>
+            <!-- Button group with icons for view, edit, delete -->
+            <div class="d-flex justify-content-between p-2">
+              <a href="#">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="#">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a href="#">
+                <i class="fas fa-trash-alt"></i>
+              </a>
+            </div>
+          </td>
+      </tr>
+    @endforeach
+
   </tbody>
 </table>
 

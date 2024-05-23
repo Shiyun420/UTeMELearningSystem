@@ -4,10 +4,17 @@
 <link rel="stylesheet" href="{{url('css/student/search_course.css')}}">
 
 <div class="search-container">
-        <form action="" method="GET" class="search-form">
-            <input type="text" name="search" class="search-input" placeholder="Search..." required>
-            <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+    <div>
+        <form action="{{ route('student.search_course') }}" method="GET">
+            <input type="text" name="search" value="" hidden>
+            <button type="submit" class="showAll-btn">Show All</button>
         </form>
+        
+    </div>
+    <form action="{{ route('student.search_course') }}" method="GET" class="search-form">
+        <input type="text" name="search" class="search-input" placeholder="Search..." required>
+        <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+    </form>
 </div>
 
 
@@ -27,15 +34,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Database BITP1323</td>
-                            <td>Nurul Izrin</td>
-                            <td>
-                                <a href="#"><i>Enroll</i></a>
-                            </td>
-                        </tr>
+                        <!-- Example -->
+                        <!--
+                            <tr>
+                                <td>1</td>
+                                <td>Database BITP1323</td>
+                                <td>Nurul Izrin</td>
+                                <td>
+                                    <a href="#"><i>Enroll</i></a>
+                                </td>
+                            </tr>
+                        -->
                         <!-- Repeat the above row structure for each row in your table -->
+
+                        @foreach($courses as $index => $course)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $course->course_code }} {{ $course->course_name }}</td>
+                                <td>{{ $course->lecturer_name }}</td>
+                                <td><a href="{{route('student.course_details',$course->lecturer_courses_id)}}"><i>Enroll</i></a></td>
+                            </tr>
+                        @endforeach
+                        
                     </tbody>
                 </table>
             </div>
@@ -43,8 +63,6 @@
     </div>
 </div>
 
-
-    <!-- Repeat the above row structure for each row in your table -->
   </tbody>
 </table>
 

@@ -37,6 +37,7 @@
             </div>
          </div>
       </nav>
+      <br>
       <main>
          <table class="mx-auto">
             <thead style="background-color:#acb984;">
@@ -47,39 +48,30 @@
                </tr>
             </thead>
             <tbody>
+               <!--
                <tr>
                   <td class="p-2">BITP 2113 Machine Learning</td>
                   <td>
-                     <!-- Button group with icons for view, edit, delete -->
                      <div class="d-flex justify-content-between p-2">
                         <a href="{{ route('lecturer.view_lesson') }}">
                         <i class="fas fa-eye"></i>
                         </a>
                      </div>
                   </td>
-               </tr>
-               <tr>
-                  <td class="p-2">BITP 2113 Machine Learning</td>
-                  <td>
-                     <!-- Button group with icons for view, edit, delete -->
-                     <div class="d-flex justify-content-between p-2">
-                        <a href="#">
-                        <i class="fas fa-eye"></i>
-                        </a>
-                     </div>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="p-2">BITP 2113 Machine Learning</td>
-                  <td>
-                     <!-- Button group with icons for view, edit, delete -->
-                     <div class="d-flex justify-content-between p-2">
-                        <a href="#">
-                        <i class="fas fa-eye"></i>
-                        </a>
-                     </div>
-                  </td>
-               </tr>
+               </tr>-->
+               
+               @foreach($courses as $course)
+                  <tr>
+                     <td class="p-2">{{ $course->code }} {{ $course->name }}</td>
+                     <td>
+                        <div class="d-flex justify-content-between p-2">
+                              <a href="{{ route('lecturer.view_lesson') }}">
+                                 <i class="fas fa-eye"></i>
+                              </a>
+                        </div>
+                     </td>
+                  </tr>
+               @endforeach
             </tbody>
          </table>
       </main>
