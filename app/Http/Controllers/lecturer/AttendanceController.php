@@ -11,9 +11,10 @@ use App\Models\Course;
 class AttendanceController extends Controller
 {
 
-    public function index(){
+    public function index($id){
               
-        return view('lecturer.attendance.index');             
+        $courseID=$id;
+        return view('lecturer.attendance.index',compact('courseID'));             
     }
 
     

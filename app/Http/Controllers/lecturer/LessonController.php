@@ -10,10 +10,10 @@ use App\Models\Course;
 
 class LessonController extends Controller
 {
-    public function view_lesson(){
-        $courses=Course::all();
+    public function view_lesson($id){
+        $courseID=$id;
         
-        return view('lecturer.lesson.view');             
+        return view('lecturer.lesson.view', compact('courseID'));             
     }
 
     public function add_lesson(){

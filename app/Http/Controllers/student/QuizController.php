@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Course;
+use App\Models\Quiz;
 
 class QuizController extends Controller
 {
-    public function ToBeCompleted()
+    public function toBeCompleted($id)
     {
-        $quizzes = [
-            ['id' => 1, 'title' => 'Quiz 1: Intro to HTML'],
-            ['id' => 2, 'title' => 'Quiz 2'],
-            ['id' => 3, 'title' => 'Quiz 3'],
-            // Add more quizzes as needed
-        ];
-        return view('student.quiz.tobe_quiz', compact('quizzes'));
+        $courseID = $id;
+        $course=Course::find($courseID);
+        $quizzes = Quiz::where('courseID', $courseID)->get();
+        
+        return view('student.quiz.tobe_quiz', compact('course','quizzes', 'courseID'));
     }
 
     public function Completed()
