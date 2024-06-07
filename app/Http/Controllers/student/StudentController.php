@@ -83,6 +83,7 @@ class StudentController extends Controller
     public function showLesson($id)
     {
         $courseID=$id;
+        session(['courseID' => $id]);
         return view('student.lesson.lesson',compact('courseID'));
     }
 

@@ -50,6 +50,7 @@
       </nav>
       <main>
          <h3>{{$quiz->name}}</h3>
+         <h3>Score: {{$marks}}%</h3>
          <input id="quizID" type="hidden" value="{{$quiz->id}}">
          <div class="question-container">
             <div id="question-display">
@@ -64,5 +65,5 @@
    </body>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   <script src="/js/student/quiz.js"></script>
+   <script src="/js/student/previewQuiz.js"></script>
 </html>

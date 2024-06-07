@@ -56,7 +56,7 @@
          <td>
             <!-- Button group with icons for view, edit, delete -->
             <div class="d-flex justify-content-between p-2">
-               <a href="{{ route('lecturer.quiz_details') }}">
+               <a href="{{ route('lecturer.quiz_details', ['quizID' => $quiz->id]) }}">
                <i class="fas fa-eye"></i>
                </a>
                <a href="edit-url">

@@ -26,7 +26,7 @@
 <h3> <b>{{$course->code}} {{$course->name}}</b> </h3>
 <div class="inline-h3">
     <h6><a href="{{ route('student.tobe_quiz', ['id' => $courseID]) }}" class="active">TO-BE-COMPLETED</a></h6>
-    <h6><a href="{{ route('student.completed_quiz') }}">COMPLETED</a></h6>
+    <h6><a href="{{ route('student.quizzes.completed') }}">COMPLETED</a></h6>
 </div>
 
 <br>
