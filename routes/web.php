@@ -83,6 +83,8 @@ Route::group([
     Route::get('/quiz/start/{id}', [StudentQuizController::class, 'start'])->name('start_quiz');
     Route::post('/quizzes/submit/{id}', [StudentQuizController::class, 'submitQuiz'])->name('submit_quiz');
     Route::get('/attendance/{id}', [StudentAttendanceController::class, 'showAttendance'])->name('attendance');
+    Route::get('/quizzes/preview/{id}', [StudentQuizController::class, 'previewQuiz'])->name('preview_quiz');
+
 });
 
 // Lecturer Routes
@@ -95,13 +97,24 @@ Route::group([
     Route::get('/view_lesson/{id}', [LecturerLessonController::class, 'view_lesson'])->name('view_lesson');
     Route::get('/add_lesson', [LecturerLessonController::class, 'add_lesson'])->name('add_lesson');
     Route::get('/quiz_index/{id}', [LecturerQuizController::class, 'index'])->name('quiz_index');
-    Route::get('/quiz_details', [LecturerQuizController::class, 'details'])->name('quiz_details');
-    Route::get('/add_question', [LecturerQuizController::class, 'add_question'])->name('add_question');
+    Route::get('/quiz_details/{quizID}', [LecturerQuizController::class, 'details'])->name('quiz_details');
+    Route::get('/add_question/{quizID}', [LecturerQuizController::class, 'add_question'])->name('add_question');
     Route::get('/attendance_index/{id}', [LecturerAttendanceController::class, 'index'])->name('attendance_index');
     Route::get('/announcement_index/{id}', [AnnouncementController::class, 'index'])->name('announcement_index');
     Route::get('/assignment_index/{id}', [LecturerAssignmentController::class, 'index'])->name('assignment_index');
     Route::get('/assignment_submission', [LecturerAssignmentController::class, 'assignment_submission'])->name('assignment_submission');
     Route::get('/assignment_give_feedback', [LecturerAssignmentController::class, 'give_feedback'])->name('assignment_give_feedback');
-    Route::post('add_quiz', [LecturerQuizController::class, 'add_quiz'])->name('add_quiz');
+    Route::post('/add_quiz', [LecturerQuizController::class, 'add_quiz'])->name('add_quiz');
+    Route::post('/add_question_post', [LecturerQuizController::class, 'add_question_post'])->name('add_question_post');
 });
+
+
+//ajax api
+Route::get('/quizzes/{quizID}/questions', [StudentQuizController::class, 'getQuestions']);
+Route::post('/student/save-selection', [StudentQuizController::class, 'saveSelection'])->name('save_selection');
+Route::get('/student/quiz/{quizID}/displaymarks', [StudentQuizController::class, 'displayMarks']);
+Route::get('/student/quizzes/completed', [StudentQuizController::class, 'completed'])->name('student.quizzes.completed');
+
+
+
 

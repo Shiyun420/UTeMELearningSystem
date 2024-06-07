@@ -12,41 +12,46 @@
   </ol>
 </nav>
 
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <div class="form-container">
 
-    <form method="POST" action="#">
+    <form method="POST" action="{{ route('lecturer.add_question_post') }}">
+        @csrf
+        <input name="quizID" type="hidden" value="{{$quiz->id}}">
         <div class="form-group">
             <label for="question">Question:</label>
-            <textarea id="question" name="question" rows="2" cols="80"></textarea>
+            <textarea id="question" name="question" rows="2" cols="80" required></textarea>
         </div>
-        <div class="form-group">
-            <label for="marks">Marks:</label>
-            <input type="number" id="marks" name="marks">
-        </div>
+
         <div class="form-group">
             <label for="choice1">Choice 1:</label>
-            <textarea id="choice1" name="choice1" rows="2" cols="80"></textarea>
+            <textarea id="choice1" name="choice1" rows="2" cols="80" required></textarea>
         </div>
         <div class="form-group">
             <label for="choice1">Choice 2:</label>
-            <textarea id="choice1" name="choice2" rows="2" cols="80"></textarea>
+            <textarea id="choice1" name="choice2" rows="2" cols="80" required></textarea>
         </div>
         <div class="form-group">
             <label for="choice1">Choice 3:</label>
-            <textarea id="choice1" name="choice3" rows="2" cols="80"></textarea>
+            <textarea id="choice1" name="choice3" rows="2" cols="80" required></textarea>
         </div>
         <div class="form-group">
             <label for="choice1">Choice 4:</label>
-            <textarea id="choice1" name="choice4"rows="2" cols="80"></textarea>
+            <textarea id="choice1" name="choice4"rows="2" cols="80" required></textarea>
         </div>
 
         <div class="form-group">
             <label for="answer">Correct Choice:</label>
-            <select name="" id="">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
+            <select name="correct_choice" id="">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
         </div>
 
