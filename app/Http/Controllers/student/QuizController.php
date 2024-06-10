@@ -19,10 +19,11 @@ class QuizController extends Controller
         $courseID = $id;
         $course=Course::find($courseID);
         // Retrieve quizzes where the quizID and studentID are not found in StudentQuiz entity
-        $quizzes = Quiz::whereNotIn('id', function($query) use ($studentID) {
+        $quizzes = Quiz::where('courseID', $courseID)
+        ->whereNotIn('id', function($query) use ($studentID) {
             $query->select('quizID')
-            ->from('student_quizzes')
-            ->where('studentID', $studentID);
+                  ->from('student_quizzes')
+                  ->where('studentID', $studentID);
         })->get();
         
         return view('student.quiz.tobe_quiz', compact('course','quizzes', 'courseID'));

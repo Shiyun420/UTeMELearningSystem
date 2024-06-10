@@ -11,8 +11,13 @@ use App\Models\Course;
 class LessonController extends Controller
 {
     public function view_lesson($id){
+        //dont delete this 4 lines
         $courseID=$id;
-        
+        $course = Course::findOrFail($courseID);
+        session(['courseID' => $id]);
+        session(['course' => $course]);
+
+
         return view('lecturer.lesson.view', compact('courseID'));             
     }
 

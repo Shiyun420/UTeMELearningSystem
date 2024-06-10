@@ -47,7 +47,7 @@
                                 <tr>
                                     <td class="table-cell">
                                        {{$quiz->name}}
-                                       <a href="{{ route('student.preview_quiz', ['id' => $quiz->id]) }}">View Score</a>
+                                       <a href="{{ route('student.preview_quiz', ['id' => $quiz->quizID]) }}">View Score</a>
                                     </td>
                                 </tr>
                                 @endforeach
