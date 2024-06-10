@@ -82,8 +82,10 @@ class StudentController extends Controller
     // Method to show lesson page
     public function showLesson($id)
     {
+        //dont delete this two line
         $courseID=$id;
         session(['courseID' => $id]);
+
         return view('student.lesson.lesson',compact('courseID'));
     }
 

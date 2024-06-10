@@ -29,12 +29,7 @@
    </div>
 </div>
 
-<h2>{{session('course')->code}} {{session('course')->name}}</h2>
 
-<!-- Button trigger modal -->
-<button type="button" class="add-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Add Quiz
-</button>
 
 @if (session('success'))
     <div class="alert alert-success">
@@ -43,29 +38,35 @@
 @endif
 
 
+<div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{{ route('lecturer.view_lesson', ['id' => session('courseID')]) }}">{{session('course')->code}} {{session('course')->name}}</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('lecturer.quiz_index', ['id' => session('courseID')]) }}">Quiz</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Submission</li>
+  </ol>
+</nav>
+</div>
+<h3>{{$quiz->name}}</h3>
 <table class="mx-auto">
    <thead style="background-color:#acb984;">
       <tr>
-         <th scope="col" class="p-2">QUIZ</th>
-         <th scope="col" class="p-2" style="width:100px;">ACTIONS</th>
+         <th scope="col" class="p-2">Student</th>
+         <th scope="col" class="p-2">Marks</th>
+         <th scope="col" class="p-2" style="width:100px;">Action</th>
          <!-- Add a new table header for actions -->
       </tr>
    </thead>
    <tbody>
-    @foreach ($quizzes as $quiz)
+    @foreach ($submissionData as $submission)
       <tr>
-         <td class="p-2">{{ $quiz->name }}</td>
+         <td class="p-2">{{ $submission->student_name }}</td>
+         <td class="p-2">{{ $submission->marks }}</td>
          <td>
             <!-- Button group with icons for view, edit, delete -->
             <div class="d-flex justify-content-between p-2">
-               <a href="{{ route('lecturer.quiz_details', ['quizID' => $quiz->id]) }}">
-               <i class="fas fa-edit"></i>
-               </a>
-               <a href="{{ route('lecturer.quiz_submissions', ['quizID' => $quiz->id]) }}">
+               <a href="{{ route('lecturer.preview_quiz_submission', ['quizID' => $quiz->id, 'studentID' => $submission->studentID]) }}">
                <i class="fas fa-eye"></i>
-               </a>
-               <a href="delete-url">
-               <i class="fas fa-trash-alt"></i>
                </a>
             </div>
          </td>
@@ -73,7 +74,6 @@
     @endforeach
    </tbody>
 </table>
-
 
     
 @endsection
