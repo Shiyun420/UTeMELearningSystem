@@ -3,31 +3,7 @@
 @section('content') 
 <link rel="stylesheet" href="{{url('css/lecturer/quiz.css')}}">
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Quiz</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <form method="POST" action="{{ route('lecturer.add_quiz') }}">
-            @csrf
-            <input name="courseID" type="hidden" value="{{$courseID}}">
-            <div class="modal-body">
-               <div class="form-group">
-                  <label for="title">Title</label>
-                  <input type="text" class="form-control" id="name" name="name" required>
-               </div>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button type="submit" class="btn assign-btn">Add</button>
-            </div>
-         </form>
-      </div>
-   </div>
-</div>
+
 
 
 
@@ -41,8 +17,8 @@
 <div>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="{{ route('lecturer.view_lesson', ['id' => session('courseID')]) }}">{{session('course')->code}} {{session('course')->name}}</a></li>
-    <li class="breadcrumb-item"><a href="{{ route('lecturer.quiz_index', ['id' => session('courseID')]) }}">Quiz</a></li>
+  <li class="breadcrumb-item"><a href="{{ route('lecturer.view_lesson', ['id' => session('lecturerCourseID')]) }}">{{session('course')->code}} {{session('course')->name}}</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('lecturer.quiz_index', ['id' => session('lecturerCourseID')]) }}">Quiz</a></li>
     <li class="breadcrumb-item active" aria-current="page">View Submission</li>
   </ol>
 </nav>

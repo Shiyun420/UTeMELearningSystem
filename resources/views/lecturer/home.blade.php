@@ -51,18 +51,18 @@
 
 
 
-               @foreach($courses as $course)
-                  <tr>
-                     <td class="p-2">{{ $course->code }} {{ $course->name }}</td>
-                     <td>
-                        <div class="d-flex justify-content-between p-2">
-                              <a href="{{ route('lecturer.view_lesson', ['id' => $course->id])}}">
-                                 <i class="fas fa-eye"></i>
-                              </a>
-                        </div>
-                     </td>
-                  </tr>
-               @endforeach
+            @foreach($lecturerCourses as $lecturerCourse)
+            <tr>
+               <td class="p-2">{{ $lecturerCourse->course->code }} {{ $lecturerCourse->course->name }}</td>
+               <td>
+                  <div class="d-flex justify-content-between p-2">
+                     <a href="{{ route('lecturer.view_lesson', ['id' => $lecturerCourse->id]) }}">
+                        <i class="fas fa-eye"></i>
+                     </a>
+                  </div>
+               </td>
+            </tr>
+            @endforeach
             </tbody>
          </table>
       </main>

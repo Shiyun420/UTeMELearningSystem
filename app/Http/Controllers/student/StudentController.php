@@ -17,7 +17,7 @@ class StudentController extends Controller
             ->join('courses as c', 'c.id', '=', 'lc.courseID')
             ->join('users as u', 'u.id', '=', 'lc.lecturerID')
             ->where('enrollments.studentID', Auth::user()->id)
-            ->select('c.id as courseID', 'c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
+            ->select('lc.courseID as courseID', 'c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
             ->get();
         
         return view('student.list_course', compact('enrolledCourses'));
@@ -79,14 +79,19 @@ class StudentController extends Controller
         return redirect()->route('student.list_course');
     }
 
-    // Method to show lesson page
     public function showLesson($id)
     {
-        //dont delete this two line
-        $courseID=$id;
-        session(['courseID' => $id]);
+        
+        //dont delete these lines, to populate navbar
+        session(['lecturerCourseID' => $id]); 
+        $lecturerCourse = LecturerCourse::where('id', $id)
+                                ->with('course')
+                                ->first();
+        $course = $lecturerCourse->course;
+        session(['course' => $course]);
 
-        return view('student.lesson.lesson',compact('courseID'));
+        
+        return view('student.lesson.lesson');
     }
 
     // Method to show assignment page

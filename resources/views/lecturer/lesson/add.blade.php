@@ -52,15 +52,7 @@
             <input type="file" id="attribute" name="attribute">
         </div>
 
-        <div class="form-group">
-            <label for="courseID">Course</label>
-            <select name="courseID" id="courseID" class="form-control" required>
-                <option value="" disabled selected>Select a course</option>
-                @foreach($courses as $course)
-                    <option value="{{ $course->id }}">{{ $course->name }}</option>
-                @endforeach
-            </select>
-        </div>
+     
 
         <div class="form-group">
             <button class="btn-submit" type="submit">Submit</button>

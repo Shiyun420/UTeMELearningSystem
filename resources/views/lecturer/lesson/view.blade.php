@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="{{url('css/lecturer/lesson.css')}}">
 
-<h2>{{ $course->name }}</h2>
+<h2>{{ session('course')->name }}</h2>
 
 <a href="{{ route('lecturer.add_lesson') }}">
     <button class="add-btn"><i class="fa-solid fa-plus"></i>Add Lesson</button>
