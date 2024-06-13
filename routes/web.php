@@ -72,10 +72,10 @@ Route::group([
     Route::post('/enroll_course',[StudentController::class,'enroll_course'])->name('enroll_course');
     Route::get('/lesson/{id}', [StudentController::class, 'showLesson'])->name('lesson');
     Route::get('/lessons/lesson_detail', [StudentLessonController::class, 'show'])->name('lesson_detail');
-    Route::get('/add-submission', [StudentAssignmentController::class, 'showSubmissionForm'])->name('add_submission');
+    Route::get('/add-submission/{id}', [StudentAssignmentController::class, 'showSubmissionForm'])->name('add_submission');
     Route::post('/submit-assignment', [StudentAssignmentController::class, 'submitAssignment'])->name('submit_assignment');
     Route::get('/assignment/{id}', [StudentController::class, 'showAssignment'])->name('assignment');
-    Route::get('/assignments/tobe-completed', [StudentAssignmentController::class, 'showToBeCompleted'])->name('tobe_completed');
+    Route::get('/assignments/tobe-completed/{id}', [StudentAssignmentController::class, 'showToBeCompleted'])->name('tobe_completed');
     Route::get('/assignments/completed', [StudentAssignmentController::class, 'showCompleted'])->name('completed_assignments');
     Route::get('/assignments/completed/feedback/{id}', [StudentAssignmentController::class, 'viewFeedback'])->name('view_feedback');
     Route::get('/quizzes/tobe-completed/{id}', [StudentQuizController::class, 'toBeCompleted'])->name('tobe_quiz');
@@ -102,6 +102,10 @@ Route::group([
     Route::get('/attendance_index/{id}', [LecturerAttendanceController::class, 'index'])->name('attendance_index');
     Route::get('/announcement_index/{id}', [AnnouncementController::class, 'index'])->name('announcement_index');
     Route::get('/assignment_index/{id}', [LecturerAssignmentController::class, 'index'])->name('assignment_index');
+    Route::post('/add_assignment', [LecturerAssignmentController::class, 'add_assignment'])->name('add_assignment');
+    Route::get('/delete_assignment/{id}', [LecturerAssignmentController::class, 'delete_assignment'])->name('delete_assignment');
+    Route::get('/edit_assignment_view/{id}', [LecturerAssignmentController::class, 'edit_assignment_view'])->name('edit_assignment_view');
+    Route::post('/edit_assignment/{id}', [LecturerAssignmentController::class, 'edit_assignment'])->name('edit_assignment');
     Route::get('/assignment_submission', [LecturerAssignmentController::class, 'assignment_submission'])->name('assignment_submission');
     Route::get('/assignment_give_feedback', [LecturerAssignmentController::class, 'give_feedback'])->name('assignment_give_feedback');
     Route::post('/add_quiz', [LecturerQuizController::class, 'add_quiz'])->name('add_quiz');
