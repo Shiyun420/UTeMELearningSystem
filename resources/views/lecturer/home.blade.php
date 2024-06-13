@@ -12,7 +12,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
          <div class="container-fluid custom-navbar">
             <a class="navbar-brand" href="#">
-            <img src="/images/webdesign/utemelearninglogo.png" alt="Your Logo" style="width: 200px; height: auto;"> 
+            <img src="/images/webdesign/utemelearninglogo.png" alt="Your Logo" style="width: 200px; height: auto;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
                <div class="dropdown ms-auto">
                   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   {{ Auth::user()->name }}
-                  </a>  
+                  </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                      <a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a>
                      <form method="POST" action="{{ route('logout') }}">
@@ -48,9 +48,9 @@
                </tr>
             </thead>
             <tbody>
-               
-               
-               
+
+
+
                @foreach($courses as $course)
                   <tr>
                      <td class="p-2">{{ $course->code }} {{ $course->name }}</td>
