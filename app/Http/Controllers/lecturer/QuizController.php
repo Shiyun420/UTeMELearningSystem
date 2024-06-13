@@ -19,10 +19,9 @@ class QuizController extends Controller
 
     public function index($id){
 
-        $courseID=$id;
         $quizzes = Quiz::where('courseID', $id)->get();
         
-        return view('lecturer.quiz.index', compact('courseID', 'quizzes'));            
+        return view('lecturer.quiz.index', compact('quizzes'));            
     }
 
     public function details($quizID)
@@ -32,19 +31,18 @@ class QuizController extends Controller
 
         $questions = Question::where('quizID', $quizID)->get();
 
-        $courseID = $quiz->courseID; 
         $quizID=$quiz->id;
 
-        return view('lecturer.quiz.details', compact('courseID', 'questions','quizID'));
+        return view('lecturer.quiz.details', compact('questions','quizID'));
     }
 
 
     public function add_question($quizID){
         
         $quiz = Quiz::findOrFail($quizID);
-        $courseID = $quiz->courseID;
+     
         
-        return view('lecturer.quiz.add_question',compact('quiz','courseID'));             
+        return view('lecturer.quiz.add_question',compact('quiz'));             
     }
 
     public function add_question_post(Request $request)
@@ -103,10 +101,10 @@ class QuizController extends Controller
             ->where('student_quizzes.quizID', $quizID)
             ->get();
 
-        $courseID = $quiz->courseID; 
+      
     
 
-        return view('lecturer.quiz.view_submission', compact('courseID', 'quiz', 'submissionData'));
+        return view('lecturer.quiz.view_submission', compact('quiz', 'submissionData'));
     }
 
     public function preview_submission($quizID,$studentID) {
