@@ -49,8 +49,13 @@
          </div>
       </nav>
       <main>
+        <input id="studentID" type="hidden" value="{{$student->id}}">
+        <input id="quizID" type="hidden" value="{{$quiz->id}}">
+
          <h3>{{$quiz->name}}</h3>
-         <input id="quizID" type="hidden" value="{{$quiz->id}}">
+         <h4>Student: {{$student->name}}</h4>
+         <h4>Score: {{$marks}}%</h4>
+         
          <div class="question-container">
             <div id="question-display">
                <!-- Question content will be injected here -->
@@ -64,5 +69,5 @@
    </body>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   <script src="/js/student/quiz.js"></script>
+   <script src="/js/lecturer/previewQuiz.js"></script>
 </html>

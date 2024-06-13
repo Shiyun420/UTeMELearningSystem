@@ -11,9 +11,10 @@ use App\Models\Course;
 class AssignmentController extends Controller
 {
 
-    public function index(){
-              
-        return view('lecturer.assignment.index');             
+    public function index($id){
+        
+        $courseID=$id;
+        return view('lecturer.assignment.index',compact('courseID'));             
     }
 
     public function assignment_submission(){

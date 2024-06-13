@@ -70,19 +70,21 @@ Route::group([
     Route::get('/search_course', [StudentController::class, 'searchCourses'])->name('search_course');
     Route::get('/course_details/{id}', [StudentController::class, 'course_details'])->name('course_details');
     Route::post('/enroll_course',[StudentController::class,'enroll_course'])->name('enroll_course');
-    Route::get('/lesson', [StudentController::class, 'showLesson'])->name('lesson');
+    Route::get('/lesson/{id}', [StudentController::class, 'showLesson'])->name('lesson');
     Route::get('/lessons/lesson_detail', [StudentLessonController::class, 'show'])->name('lesson_detail');
     Route::get('/add-submission', [StudentAssignmentController::class, 'showSubmissionForm'])->name('add_submission');
     Route::post('/submit-assignment', [StudentAssignmentController::class, 'submitAssignment'])->name('submit_assignment');
-    Route::get('/assignment', [StudentController::class, 'showAssignment'])->name('assignment');
+    Route::get('/assignment/{id}', [StudentController::class, 'showAssignment'])->name('assignment');
     Route::get('/assignments/tobe-completed', [StudentAssignmentController::class, 'showToBeCompleted'])->name('tobe_completed');
     Route::get('/assignments/completed', [StudentAssignmentController::class, 'showCompleted'])->name('completed_assignments');
     Route::get('/assignments/completed/feedback/{id}', [StudentAssignmentController::class, 'viewFeedback'])->name('view_feedback');
-    Route::get('/quizzes/tobe-completed', [StudentQuizController::class, 'toBeCompleted'])->name('tobe_quiz');
+    Route::get('/quizzes/tobe-completed/{id}', [StudentQuizController::class, 'toBeCompleted'])->name('tobe_quiz');
     Route::get('/quizzes/completed', [StudentQuizController::class, 'completed'])->name('completed_quiz');
     Route::get('/quiz/start/{id}', [StudentQuizController::class, 'start'])->name('start_quiz');
     Route::post('/quizzes/submit/{id}', [StudentQuizController::class, 'submitQuiz'])->name('submit_quiz');
-    Route::get('/attendance', [StudentAttendanceController::class, 'showAttendance'])->name('attendance');
+    Route::get('/attendance/{id}', [StudentAttendanceController::class, 'showAttendance'])->name('attendance');
+    Route::get('/quizzes/preview/{id}', [StudentQuizController::class, 'previewQuiz'])->name('preview_quiz');
+
 });
 
 // Lecturer Routes
@@ -96,13 +98,28 @@ Route::group([
     Route::get('/add_lesson', [LecturerLessonController::class, 'add_lesson'])->name('add_lesson');
     Route::post('/store_lesson', [LecturerLessonController::class, 'store_lesson'])->name('store_lesson');
     Route::get('/detail/lecture_note{id}', [LecturerLessonController::class, 'lesson_detail'])->name('lesson_detail');
-    Route::get('/quiz_index', [LecturerQuizController::class, 'index'])->name('quiz_index');
-    Route::get('/quiz_details', [LecturerQuizController::class, 'details'])->name('quiz_details');
-    Route::get('/add_question', [LecturerQuizController::class, 'add_question'])->name('add_question');
-    Route::get('/attendance_index', [LecturerAttendanceController::class, 'index'])->name('attendance_index');
-    Route::get('/announcement_index', [AnnouncementController::class, 'index'])->name('announcement_index');
-    Route::get('/assignment_index', [LecturerAssignmentController::class, 'index'])->name('assignment_index');
+    Route::get('/quiz_index/{id}', [LecturerQuizController::class, 'index'])->name('quiz_index');
+    Route::get('/quiz_details/{quizID}', [LecturerQuizController::class, 'details'])->name('quiz_details');
+    Route::get('/add_question/{quizID}', [LecturerQuizController::class, 'add_question'])->name('add_question');
+    Route::get('/attendance_index/{id}', [LecturerAttendanceController::class, 'index'])->name('attendance_index');
+    Route::get('/announcement_index/{id}', [AnnouncementController::class, 'index'])->name('announcement_index');
+    Route::get('/assignment_index/{id}', [LecturerAssignmentController::class, 'index'])->name('assignment_index');
     Route::get('/assignment_submission', [LecturerAssignmentController::class, 'assignment_submission'])->name('assignment_submission');
     Route::get('/assignment_give_feedback', [LecturerAssignmentController::class, 'give_feedback'])->name('assignment_give_feedback');
+    Route::post('/add_quiz', [LecturerQuizController::class, 'add_quiz'])->name('add_quiz');
+    Route::post('/add_question_post', [LecturerQuizController::class, 'add_question_post'])->name('add_question_post');
+    Route::get('/quiz_submissions/{quizID}', [LecturerQuizController::class, 'view_submissions'])->name('quiz_submissions');
+    Route::get('/quiz_preview_submission/{quizID}/{studentID}', [LecturerQuizController::class, 'preview_submission'])->name('preview_quiz_submission');
 });
+
+
+//ajax api
+Route::get('/quizzes/{quizID}/questions', [StudentQuizController::class, 'getQuestions']);
+Route::get('/lecturer/quizzes/{quizID}/{studentID}/questions', [LecturerQuizController::class, 'getQuestions']);
+Route::post('/student/save-selection', [StudentQuizController::class, 'saveSelection'])->name('save_selection');
+Route::get('/student/quiz/{quizID}/displaymarks', [StudentQuizController::class, 'displayMarks']);
+Route::get('/student/quizzes/completed', [StudentQuizController::class, 'completed'])->name('student.quizzes.completed');
+Route::get('/lecturer/quizzes/view_submissions/{id}', [LecturerQuizController::class, 'view_submissions']);
+
+
 

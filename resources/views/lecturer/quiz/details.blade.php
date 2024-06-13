@@ -11,7 +11,8 @@
   </ol>
 </nav>
 
-<a href="{{ route('lecturer.add_question') }}">
+<a href="{{ route('lecturer.add_question', ['quizID' => $quizID]) }}">
+
     <button class="add-btn"><i class="fa-solid fa-plus"></i>Add Question</button>
 </a>
 
@@ -24,8 +25,9 @@
     </tr>
   </thead>
   <tbody>
+  @foreach ($questions as $question)
   <tr>
-        <td class="p-2">What is HTML?</td>
+        <td class="p-2">{{$question->question}}</td>
         <td>
           <!-- Button group with icons for view, edit, delete -->
         <div class="d-flex justify-content-between p-2">
@@ -43,41 +45,7 @@
         
         </td>
     </tr>
-    <tr>
-        <td class="p-2">What is the difference of web browser and web server?</td>
-        <td>
-          <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-          <a href="#">
-              <i class="fas fa-eye"></i>
-          </a>
-          <a href="edit-url">
-              <i class="fas fa-edit"></i>
-          </a>
-          <a href="delete-url">
-              <i class="fas fa-trash-alt"></i>
-          </a>
-        </div>
-
-        
-        </td>
-    </tr>
-    <tr>
-        <td class="p-2">What is CSS?</td>
-        <td>
-          <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-          <a href="#">
-              <i class="fas fa-eye"></i>
-          </a>
-          <a href="edit-url">
-              <i class="fas fa-edit"></i>
-          </a>
-          <a href="delete-url">
-              <i class="fas fa-trash-alt"></i>
-          </a>
-        </div>
-
+@endforeach
         
         </td>
     </tr>

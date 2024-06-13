@@ -12,18 +12,24 @@ use App\Models\Lesson;
 class LessonController extends Controller
 {
     // In your controller
-    public function view_lesson($id)
-    {
-         $courses = Course::find($id);
-         $lessons = Lesson::where('courseID', $id)->get();
+    public function view_lesson($id){
+        //dont delete this 4 lines
+        $courseID=$id;
+        $lessons = Lesson::where('courseID', $id)->get();
+        $course = Course::findOrFail($courseID);
+        session(['courseID' => $id]);
+        session(['course' => $course]);
 
-    return view('lecturer.lesson.view', compact('lessons', 'courses'));
+
+        return view('lecturer.lesson.view', compact('lessons','course','courseID'));
     }
+
+
     public function add_lesson(){
 
+        $courseID = session('courseID');
         $courses = Course::all();
-
-        return view('lecturer.lesson.add',compact('courses'));
+        return view('lecturer.lesson.add',compact('courses','courseID'));
     }
     public function store_lesson(Request $request){
 
@@ -53,9 +59,9 @@ class LessonController extends Controller
     }
     public function lesson_detail($id)
     {
+        $courseID = session('courseID');
         $lessons = Lesson::where('id', $id)->get();
-
-        return view('lecturer.lesson.detail',compact('lessons'));
+        return view('lecturer.lesson.detail',compact('lessons','courseID'));
     }
 
 

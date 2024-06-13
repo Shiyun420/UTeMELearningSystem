@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,600&display=swap');
+
+* {
+    font-family: 'Poppins',sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 200px;
+    background-color:#acb984;
+}
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    background-color: #54671f;
+    font-weight: bold;
+}
+.sidebar a {
+    background-color:#acb984;
+}
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    overflow-x: hidden;
+    overflow-y: auto;
+   /* Scrollable contents if viewport is shorter than content. */
+}
+main {
+    padding-left: 240px;
+
+}
+
+body{
+    background-color: #f7f8ea;
+}
+.custom-navbar {
+    background-color: #f7f8ea;
+    border-bottom: 2px solid #1c3e3d;
+}
+
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.question-rect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    background-color: #54671f !important;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.question-rect:hover {
+    background-color: #54671f;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+#question-display {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+    background-color: #f9f9f9;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #54671f;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #3d4f16;
+}
+
+button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.current-question {
+    border: 3px solid black;
+}

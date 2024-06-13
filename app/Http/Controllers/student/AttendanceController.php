@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
 {
-    public function showAttendance()
+    public function showAttendance($id)
     {
-        return view('student.attendance.attendance');
+        $courseID=$id;
+        return view('student.attendance.attendance',compact('courseID'));
     }
 
 }

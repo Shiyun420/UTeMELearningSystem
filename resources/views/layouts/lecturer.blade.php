@@ -42,20 +42,20 @@
       <!-- Sidebar -->
       <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
          <div class="position-sticky" >
-            <div class="list-group list-group-flush mt-2" >
-               <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
-               </i><span>Lesson</span>
+            <div class="list-group list-group-flush mt-2">
+               <a href="{{ route('lecturer.view_lesson', ['id' => $courseID]) }}" class="list-group-item list-group-item-action py-2 {{ Request::routeIs('lecturer.view_lesson') ? ' active' : '' }}">
+               <span>Lesson</span>
                </a>
-               <a href="{{ route('lecturer.assignment_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <a href="{{ route('lecturer.assignment_index',['id' => $courseID]) }}" class="list-group-item list-group-item-action py-2{{ Request::routeIs('lecturer.assignment_index') ? ' active' : '' }}">
                <span>Assignment</span>
                </a>
-               <a href="{{ route('lecturer.quiz_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <a href="{{ route('lecturer.quiz_index', ['id' => $courseID]) }}" class="list-group-item list-group-item-action py-2{{ Request::routeIs('lecturer.quiz_index') ? ' active' : '' }}">
                <span>Quiz</span>
                </a>
-               <a href="{{ route('lecturer.attendance_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <a href="{{ route('lecturer.attendance_index', ['id' => $courseID]) }}" class="list-group-item list-group-item-action py-2{{ Request::routeIs('lecturer.attendance_index') ? ' active' : '' }}">
                <span>Attendance</span>
                </a>
-               <a href="{{ route('lecturer.announcement_index') }}" class="list-group-item list-group-item-action py-2 ripple">
+               <a href="{{ route('lecturer.announcement_index', ['id' => $courseID]) }}" class="list-group-item list-group-item-action py-2{{ Request::routeIs('lecturer.announcement_index') ? ' active' : '' }}">
                <span>Announcement</span>
                </a>
             </div>

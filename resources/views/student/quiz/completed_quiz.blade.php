@@ -22,10 +22,10 @@
 </style>
 
 
-<h3><b> BITM 2113 WEB APPLICATION DEVELOPMENT </b></h3>
+<h3><b> {{$course->code}} {{$course->name}} </b></h3>
 <div class="inline-h3">
-    <h6><a href="{{ route('student.tobe_quiz') }}">TO-BE-COMPLETED</a></h6>
-    <h6><a href="{{ route('student.completed_quiz') }}" class="active">COMPLETED</a></h6>
+    <h6><a href="{{ route('student.tobe_quiz', ['id' => $course->id]) }}">TO-BE-COMPLETED</a></h6>
+    <h6><a href="{{ route('student.quizzes.completed') }}" class="active">COMPLETED</a></h6>
 </div>
 
 <br>
@@ -43,25 +43,14 @@
                     <tbody>
                         <tr>
                             <tbody>
+                                @foreach($completedQuizzes as $quiz)
                                 <tr>
                                     <td class="table-cell">
-                                       Quiz 4 : What is CSS
-                                       <a href="">View Score</a>
+                                       {{$quiz->name}}
+                                       <a href="{{ route('student.preview_quiz', ['id' => $quiz->quizID]) }}">View Score</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="table-cell">
-                                        Quiz 5 : Javascript Syntax
-                                       <a href="">View Score</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-cell">
-                                        Quiz 6 : HTML Tags
-                                       <a href="">View Score</a>
-                                    </td>
-                                </tr>
-                                <!-- Add more rows as needed -->
+                                @endforeach
                     </tbody>
                 </table>
             </div>

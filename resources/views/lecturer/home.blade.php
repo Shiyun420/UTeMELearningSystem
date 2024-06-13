@@ -48,26 +48,17 @@
                </tr>
             </thead>
             <tbody>
-               <!--
-               <tr>
-                  <td class="p-2">BITP 2113 Machine Learning</td>
-                  <td>
-                     <div class="d-flex justify-content-between p-2">
-                        <a href="">
-                        <i class="fas fa-eye"></i>
-                        </a>
-                     </div>
-                  </td>
-               </tr>-->
+
+
 
                @foreach($courses as $course)
                   <tr>
                      <td class="p-2">{{ $course->code }} {{ $course->name }}</td>
                      <td>
                         <div class="d-flex justify-content-between p-2">
-                            <a href="{{ route('lecturer.view_lesson' , ['id' => $course->id])  }}">
-                                <i class="fas fa-eye"></i>
-                            </a>
+                              <a href="{{ route('lecturer.view_lesson', ['id' => $course->id])}}">
+                                 <i class="fas fa-eye"></i>
+                              </a>
                         </div>
                      </td>
                   </tr>

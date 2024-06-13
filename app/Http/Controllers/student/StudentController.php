@@ -17,7 +17,7 @@ class StudentController extends Controller
             ->join('courses as c', 'c.id', '=', 'lc.courseID')
             ->join('users as u', 'u.id', '=', 'lc.lecturerID')
             ->where('enrollments.studentID', Auth::user()->id)
-            ->select('c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
+            ->select('c.id as courseID', 'c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
             ->get();
         
         return view('student.list_course', compact('enrolledCourses'));
@@ -80,22 +80,23 @@ class StudentController extends Controller
     }
 
     // Method to show lesson page
-    public function showLesson()
+    public function showLesson($id)
     {
-        // Add logic to fetch lesson details if necessary
-        return view('student.lesson.lesson');
+        //dont delete this two line
+        $courseID=$id;
+        session(['courseID' => $id]);
+
+        return view('student.lesson.lesson',compact('courseID'));
     }
 
     // Method to show assignment page
-    public function showAssignment()
+    public function showAssignment($id)
     {
-        return view('student.assignment.tobe_assignment');
+        $courseID=$id;
+        return view('student.assignment.tobe_assignment',compact('courseID'));
     }
 
     // Method to show attendance page
-    public function showAttendance()
-    {
-        return view('student.attendance');
-    }
+    
 
 }

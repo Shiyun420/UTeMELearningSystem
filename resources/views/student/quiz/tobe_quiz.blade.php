@@ -23,10 +23,10 @@
 
 
 
-<h3> <b>BITM 2113 WEB APPLICATION DEVELOPMENT</b> </h3>
+<h3> <b>{{$course->code}} {{$course->name}}</b> </h3>
 <div class="inline-h3">
-    <h6><a href="{{ route('student.tobe_quiz') }}" class="active">TO-BE-COMPLETED</a></h6>
-    <h6><a href="{{ route('student.completed_quiz') }}">COMPLETED</a></h6>
+    <h6><a href="{{ route('student.tobe_quiz', ['id' => $courseID]) }}" class="active">TO-BE-COMPLETED</a></h6>
+    <h6><a href="{{ route('student.quizzes.completed') }}">COMPLETED</a></h6>
 </div>
 
 <br>
@@ -45,7 +45,7 @@
                         @foreach($quizzes as $quiz)
                         <tr>
                             <td class="table-cell">
-                                {{ $quiz['title'] }}
+                                {{ $quiz['name'] }}
                                 <a href="{{ route('student.start_quiz', ['id' => $quiz['id']]) }}">Start Quiz</a>
                             </td>
                         </tr>
