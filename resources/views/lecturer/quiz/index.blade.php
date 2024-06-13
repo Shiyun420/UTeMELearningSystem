@@ -13,7 +13,7 @@
          </div>
          <form method="POST" action="{{ route('lecturer.add_quiz') }}">
             @csrf
-            <input name="courseID" type="hidden" value="{{$courseID}}">
+            <input name="courseID" type="hidden" value="{{session('lecturerCourseID')}}">
             <div class="modal-body">
                <div class="form-group">
                   <label for="title">Title</label>

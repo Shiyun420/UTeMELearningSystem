@@ -10,37 +10,38 @@ use App\Models\Question;
 use App\Models\Selection;
 use App\Models\StudentQuiz;
 use App\Models\StudentQuestion;
+use App\Models\LecturerCourse;
 
 class QuizController extends Controller
 {
     public function toBeCompleted($id)
     {
         $studentID = Auth::id();
-        $courseID = $id;
-        $course=Course::find($courseID);
+
+        $lecturercourse=LecturerCourse::find($id);
         // Retrieve quizzes where the quizID and studentID are not found in StudentQuiz entity
-        $quizzes = Quiz::where('courseID', $courseID)
+        $quizzes = Quiz::where('courseID', $lecturercourse->id)
         ->whereNotIn('id', function($query) use ($studentID) {
             $query->select('quizID')
                   ->from('student_quizzes')
                   ->where('studentID', $studentID);
         })->get();
         
-        return view('student.quiz.tobe_quiz', compact('course','quizzes', 'courseID'));
+        return view('student.quiz.tobe_quiz', compact('quizzes'));
     }
 
     public function Completed()
     {
         $studentID = Auth::id();
-        $courseID = session('courseID');
-        $course=Course::find($courseID);
+        $courseID = session('lecturerCourseID');
+     
 
         $completedQuizzes = Quiz::join('student_quizzes', 'quizzes.id', '=', 'student_quizzes.quizID')
         ->where('student_quizzes.studentID', $studentID)
         ->where('quizzes.courseID', $courseID)
         ->get();
 
-        return view('student.quiz.completed_quiz', compact('completedQuizzes','course','courseID'));
+        return view('student.quiz.completed_quiz', compact('completedQuizzes'));
     }
 
     public function start($id)

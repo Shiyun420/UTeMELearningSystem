@@ -11,11 +11,11 @@ use App\Models\Course;
 class AnnouncementController extends Controller
 {
 
-    public function index($id){
+    public function index(){
               
-        $courseID=$id;
-        return view('lecturer.announcement.index', compact('courseID'));             
+        return view('lecturer.announcement.index');             
     }
 
+    //when add announcement, use annoucement->courseID=session('lecturerCourseID');
     
 }

@@ -96,6 +96,8 @@ Route::group([
     Route::get('/home', [LecturerHomeController::class, 'home'])->name('home');
     Route::get('/view_lesson/{id}', [LecturerLessonController::class, 'view_lesson'])->name('view_lesson');
     Route::get('/add_lesson', [LecturerLessonController::class, 'add_lesson'])->name('add_lesson');
+    Route::post('/store_lesson', [LecturerLessonController::class, 'store_lesson'])->name('store_lesson');
+    Route::get('/detail/lecture_note{id}', [LecturerLessonController::class, 'lesson_detail'])->name('lesson_detail');
     Route::get('/quiz_index/{id}', [LecturerQuizController::class, 'index'])->name('quiz_index');
     Route::get('/quiz_details/{quizID}', [LecturerQuizController::class, 'details'])->name('quiz_details');
     Route::get('/add_question/{quizID}', [LecturerQuizController::class, 'add_question'])->name('add_question');
