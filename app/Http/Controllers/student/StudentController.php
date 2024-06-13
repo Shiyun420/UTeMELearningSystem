@@ -79,6 +79,7 @@ class StudentController extends Controller
         return redirect()->route('student.list_course');
     }
 
+    //from student list_couse.blade.php {{route('student.lesson', ['id' => $enrolledCourse->courseID])
     public function showLesson($id)
     {
         

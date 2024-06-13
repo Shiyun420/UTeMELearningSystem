@@ -13,8 +13,8 @@ use App\Models\LecturerCourse;
 class LessonController extends Controller
 {
 
-    //pass $lecturerCourseID from listcourses 
-    //from student list_couse.blade.php {{route('student.lesson', ['id' => $enrolledCourse->courseID])
+    //$id is from {{ route('lecturer.view_lesson', ['id' => $lecturerCourse->id]) }}
+    //in lecturer>home.blade.php
     public function view_lesson($id){
         
         //dont delete $lecturerCourseID, $lecturerCourse and $course
