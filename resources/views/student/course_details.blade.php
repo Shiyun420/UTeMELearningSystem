@@ -17,7 +17,7 @@
                     <input name="courseID" value="{{$lecturercourse->id}}" hidden>
                     <!-- If user has enrolled the course -> Display "Start Learning" -->
                     @if ($enrolledCourses->contains('courseID', $lecturercourse->id))
-                        <a href="{{route('student.lesson')}}" class="learning-btn">Start Learning</button>
+                        <a href="{{route('student.lesson',['id' => session('lecturerCourseID')])}}" class="learning-btn">Start Learning</button>
                     @else
                         <button type="submit" class="enroll-btn">Enroll me</button>
                     @endif
@@ -26,6 +26,6 @@
             </div>
         </div>
     </div>
-</div>          
+</div>
 
 @endsection

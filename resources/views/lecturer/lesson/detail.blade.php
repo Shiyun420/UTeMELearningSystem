@@ -12,10 +12,11 @@
   </ol>
 </nav>
 
+@foreach($lessons as $lesson)
+    <h3>{{ $lesson->title }}</h3>
+    <h3>{{ $lesson->chapter }}</h3>
+@endforeach
 
-<h3>Week 1 </h3>
-<h3>introduction</h3>
-<hr>
 
 
 <div class="preview-container">
