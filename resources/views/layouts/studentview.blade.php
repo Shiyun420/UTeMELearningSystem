@@ -9,8 +9,9 @@
       <title>Document</title>
    </head>
    <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid custom-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position:fixed; z-index:10; width:100%;">
+
+        <div class="container-fluid custom-navbar ">
            <a class="navbar-brand" href="#">
            <img src="/images/webdesign/utemelearninglogo.png" alt="Your Logo" style="width: 200px; height: auto;">
            </a>
@@ -37,9 +38,10 @@
               </div>
            </div>
         </div>
-     </nav>
+    </nav>
+
       <!-- Sidebar -->
-      <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
         <div class="position-sticky">
             <div class="list-group list-group-flush mt-2">
                 <a href="{{ route('student.lesson', ['id' => session('lecturerCourseID')])}}" class="list-group-item list-group-item-action py-2 ripple{{ Request::routeIs('student.lesson') ? ' active' : '' }}" aria-current="true">

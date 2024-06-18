@@ -25,6 +25,15 @@
         </div>
 
         @endif
+        @if ($errors->any())
+        <div class="alert alert-danger">
+       <ul>
+           @foreach ($errors->all() as $error)
+               <li>{{ $error }}</li>
+           @endforeach
+       </ul>
+   </div>
+@endif
     </div>
 
     <form action="{{ route('lecturer.store_lesson') }}" method="POST" enctype="multipart/form-data">
@@ -52,7 +61,7 @@
             <input type="file" id="attribute" name="attribute">
         </div>
 
-     
+
 
         <div class="form-group">
             <button class="btn-submit" type="submit">Submit</button>
