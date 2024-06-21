@@ -44,6 +44,47 @@ class QuizController extends Controller
         return view('lecturer.quiz.add_question',compact('quiz'));             
     }
 
+    public function edit_question($questionID)
+    {
+        // Retrieve the question by its ID along with its selections and quiz
+        $question = Question::with('selections', 'quiz')->findOrFail($questionID);
+        
+        // Pass the question and its quiz to the edit view
+        return view('lecturer.quiz.edit_question', compact('question'));
+    }
+
+    public function edit_question_post(Request $request, $questionID)
+    {
+        // Validate the incoming request data
+        $request->validate([
+            'question' => 'required|string',
+            'choices' => 'required|array',
+            'choices.*' => 'required|string',
+            'correct_choice' => 'required|integer'
+        ]);
+
+        // Find the question by its ID
+        $question = Question::findOrFail($questionID);
+
+        // Update the question text
+        $question->question = $request->input('question');
+        $question->save();
+
+        // Update the selections (choices)
+        foreach ($request->input('choices') as $selectionID => $selectionText) {
+            $selection = Selection::findOrFail($selectionID);
+            $selection->selection = $selectionText;
+            $selection->isTrue = ($selectionID == $request->input('correct_choice'));
+            $selection->save();
+        }
+
+        // Redirect back to the edit page with a success message
+        return redirect()->route('lecturer.edit_question', ['questionID' => $questionID])
+                        ->with('success', 'Question updated successfully.');
+    }
+
+
+
     public function add_question_post(Request $request)
     {
         // Create a new question

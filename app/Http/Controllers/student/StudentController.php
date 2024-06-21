@@ -19,7 +19,7 @@ class StudentController extends Controller
             ->join('courses as c', 'c.id', '=', 'lc.courseID')
             ->join('users as u', 'u.id', '=', 'lc.lecturerID')
             ->where('enrollments.studentID', Auth::user()->id)
-            ->select('lc.id as courseID', 'c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
+            ->select('lc.id as lecturerCourseID', 'c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
             ->get();
 
         return view('student.list_course', compact('enrolledCourses'));
