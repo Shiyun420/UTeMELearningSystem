@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
-    public function show()
+    public function show($id)
     {
-
-        // Pass the lesson data to the view
-        return view('student.lesson.lesson_detail');
+        $lessons = Lesson::where('id', $id)->get();
+        return view('student.lesson.lesson_detail',compact('lessons'));
     }
 }
 

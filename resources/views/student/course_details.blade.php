@@ -16,8 +16,8 @@
                     @csrf
                     <input name="courseID" value="{{$lecturercourse->id}}" hidden>
                     <!-- If user has enrolled the course -> Display "Start Learning" -->
-                    @if ($enrolledCourses->contains('courseID', $lecturercourse->id))
-                        <a href="{{route('student.lesson')}}" class="learning-btn">Start Learning</button>
+                    @if ($enrolledCourses->contains('id', $lecturercourse->id))
+                        <a href="{{route('student.lesson',['id' => $lecturercourse->id])}}" class="learning-btn">Start Learning</button>
                     @else
                         <button type="submit" class="enroll-btn">Enroll me</button>
                     @endif
@@ -26,6 +26,6 @@
             </div>
         </div>
     </div>
-</div>          
+</div>
 
 @endsection

@@ -57,16 +57,14 @@
          <td class="p-2">{{ $quiz->name }}</td>
          <td>
             <!-- Button group with icons for view, edit, delete -->
-            <div class="d-flex justify-content-between p-2">
-               <a href="{{ route('lecturer.quiz_details', ['quizID' => $quiz->id]) }}">
+            <div class="d-flex">
+               <a href="{{ route('lecturer.quiz_details', ['quizID' => $quiz->id]) }}" class="p-2">
                <i class="fas fa-edit"></i>
                </a>
-               <a href="{{ route('lecturer.quiz_submissions', ['quizID' => $quiz->id]) }}">
+               <a href="{{ route('lecturer.quiz_submissions', ['quizID' => $quiz->id]) }}" class="p-2">
                <i class="fas fa-eye"></i>
                </a>
-               <a href="delete-url">
-               <i class="fas fa-trash-alt"></i>
-               </a>
+
             </div>
          </td>
       </tr>

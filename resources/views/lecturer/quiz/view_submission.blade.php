@@ -13,11 +13,12 @@
     </div>
 @endif
 
+<h2>{{session('course')->code}} {{session('course')->name}}</h2>
 
 <div>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="{{ route('lecturer.view_lesson', ['id' => session('lecturerCourseID')]) }}">{{session('course')->code}} {{session('course')->name}}</a></li>
+  
     <li class="breadcrumb-item"><a href="{{ route('lecturer.quiz_index', ['id' => session('lecturerCourseID')]) }}">Quiz</a></li>
     <li class="breadcrumb-item active" aria-current="page">View Submission</li>
   </ol>

@@ -20,9 +20,12 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                <div class="navbar-nav">
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
+<<<<<<< HEAD
                   <!--<a class="nav-link" href="#">Features</a>
                   <a class="nav-link" href="#">Pricing</a>
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+=======
+>>>>>>> bf6d6d4d439c2e60aba3b14dd71473805f9b40d0
                </div>
                <div class="dropdown ms-auto">
                   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,17 +44,18 @@
       </nav>
       <!-- Sidebar -->
       <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
-         <div class="position-sticky" >
-            <div class="list-group list-group-flush mt-2" >
-               <a href="{{ route('admin.showlecturers') }}" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
-               </i><span>Lecturer</span>
-               </a>
-               <a href="{{ route('admin.showcourses') }}" class="list-group-item list-group-item-action py-2 ripple">
-               <span>Courses</span>
-               </a>
+         <div class="position-sticky">
+            <div class="list-group list-group-flush mt-2">
+                  <a href="{{ route('admin.showlecturers') }}" class="list-group-item list-group-item-action py-2 ripple {{ Route::currentRouteName() == 'admin.showlecturers' ? 'active' : '' }}" aria-current="true">
+                     <span>Lecturer</span>
+                  </a>
+                  <a href="{{ route('admin.showcourses') }}" class="list-group-item list-group-item-action py-2 ripple {{ Route::currentRouteName() == 'admin.showcourses' ? 'active' : '' }}">
+                     <span>Courses</span>
+                  </a>
             </div>
          </div>
       </nav>
+
       <!-- Sidebar -->
       <main>
          @yield('content') <!-- Inject content here -->
