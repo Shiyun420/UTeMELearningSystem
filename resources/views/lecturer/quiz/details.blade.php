@@ -3,15 +3,16 @@
 @section('content') 
 <link rel="stylesheet" href="{{url('css/lecturer/quiz.css')}}">
 
+<h2>{{session('course')->code}} {{session('course')->name}}</h2>
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="">BITM 2223 WEB APPLICATION DEVELOPMENT</a></li>  
-    <li class="breadcrumb-item"><a href="#">QUIZ</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Intro to HTML</li>
+    <li class="breadcrumb-item"><a href="{{ route('lecturer.quiz_index', ['id' => session('lecturerCourseID')]) }}">QUIZ</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{$quiz->name}}</li>
   </ol>
 </nav>
 
-<a href="{{ route('lecturer.add_question', ['quizID' => $quizID]) }}">
+<a href="{{ route('lecturer.add_question', ['quizID' => $quiz->id]) }}">
 
     <button class="add-btn"><i class="fa-solid fa-plus"></i>Add Question</button>
 </a>

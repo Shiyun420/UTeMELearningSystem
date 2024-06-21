@@ -112,7 +112,7 @@ Route::group([
     Route::post('/add_question_post', [LecturerQuizController::class, 'add_question_post'])->name('add_question_post');
     Route::get('/quiz_submissions/{quizID}', [LecturerQuizController::class, 'view_submissions'])->name('quiz_submissions');
     Route::get('/quiz_preview_submission/{quizID}/{studentID}', [LecturerQuizController::class, 'preview_submission'])->name('preview_quiz_submission');
-    Route::get('/announcement_index/{id}', [AnnouncementController::class, 'index'])->name('announcement_index');
+    //Route::get('/announcement_index/{id}', [AnnouncementController::class, 'index'])->name('announcement_index');
     Route::get('/announcement_index', [AnnouncementController::class, 'index'])->name('announcement_index');
     Route::post('/add_announcement', [AnnouncementController::class, 'add_announcement'])->name('add_announcement');
     Route::patch('/edit_announcements/{id}/edit', [AnnouncementController::class, 'edit_announcement'])->name('edit_announcement');

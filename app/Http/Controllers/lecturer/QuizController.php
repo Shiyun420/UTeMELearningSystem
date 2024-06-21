@@ -31,9 +31,8 @@ class QuizController extends Controller
 
         $questions = Question::where('quizID', $quizID)->get();
 
-        $quizID=$quiz->id;
 
-        return view('lecturer.quiz.details', compact('questions','quizID'));
+        return view('lecturer.quiz.details', compact('questions','quiz'));
     }
 
 

@@ -4,17 +4,18 @@
 @section('content')
 <link rel="stylesheet" href="{{url('css/lecturer/assignment.css')}}">
 
+<h2>{{session('course')->code}} {{session('course')->name}}</h2>
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="">Cloud Foudation</a></li>
-    <li class="breadcrumb-item"><a href="#">Assignment</a></li>
-    <li class="breadcrumb-item"><a href="#">Submissions</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('lecturer.view_lesson',['id' => session('lecturerCourseID')]) }}">LESSON</a></li>
+    <li class="breadcrumb-item active" aria-current="page">LESSON DETAILS</li>
   </ol>
 </nav>
 
 @foreach($lessons as $lesson)
-    <h3>{{ $lesson->title }}</h3>
-    <h3>{{ $lesson->chapter }}</h3>
+    <h3>Chapter {{ $lesson->chapter }}: {{ $lesson->title }}</h3>
+    <h4>{{ $lesson->description }}</h4>
 @endforeach
 
 
