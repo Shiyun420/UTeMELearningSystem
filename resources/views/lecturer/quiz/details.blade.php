@@ -31,16 +31,12 @@
         <td class="p-2">{{$question->question}}</td>
         <td>
           <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-          <a href="#">
-              <i class="fas fa-eye"></i>
-          </a>
-          <a href="edit-url">
+        <div class="mx-auto p-2">
+        
+          <a href="{{ route('lecturer.edit_question',['questionID' =>$question -> id] ) }}">
               <i class="fas fa-edit"></i>
           </a>
-          <a href="delete-url">
-              <i class="fas fa-trash-alt"></i>
-          </a>
+        
         </div>
 
         
