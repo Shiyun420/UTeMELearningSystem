@@ -71,8 +71,12 @@ Route::group([
     Route::get('/course_details/{id}', [StudentController::class, 'course_details'])->name('course_details');
     Route::post('/enroll_course',[StudentController::class,'enroll_course'])->name('enroll_course');
     Route::get('/lesson/{id}', [StudentController::class, 'showLesson'])->name('lesson');
-    Route::get('/lessons/lesson_detail', [StudentLessonController::class, 'show'])->name('lesson_detail');
+
+   
     Route::get('/add-submission/{id}', [StudentAssignmentController::class, 'showSubmissionForm'])->name('add_submission');
+
+    Route::get('/lessons/lesson_detail{id}', [StudentLessonController::class, 'show'])->name('lesson_detail');
+   
     Route::post('/submit-assignment', [StudentAssignmentController::class, 'submitAssignment'])->name('submit_assignment');
     Route::get('/assignment/{id}', [StudentController::class, 'showAssignment'])->name('assignment');
     Route::get('/assignments/tobe-completed/{id}', [StudentAssignmentController::class, 'showToBeCompleted'])->name('tobe_completed');
@@ -97,12 +101,14 @@ Route::group([
     Route::get('/view_lesson/{id}', [LecturerLessonController::class, 'view_lesson'])->name('view_lesson');
     Route::get('/add_lesson', [LecturerLessonController::class, 'add_lesson'])->name('add_lesson');
     Route::post('/store_lesson', [LecturerLessonController::class, 'store_lesson'])->name('store_lesson');
+    Route::get('/edit_lesson/{id}', [LecturerLessonController::class, 'edit_lesson'])->name('edit_lesson');
+    Route::put('/edit_lessons/{id}',[LecturerLessonController::class, 'update_lesson'])->name('update_lesson');
+    Route::post('/delete_lesson', [LecturerLessonController::class, 'delete_lesson'])->name('delete_lesson');
     Route::get('/detail/lecture_note{id}', [LecturerLessonController::class, 'lesson_detail'])->name('lesson_detail');
     Route::get('/quiz_index/{id}', [LecturerQuizController::class, 'index'])->name('quiz_index');
     Route::get('/quiz_details/{quizID}', [LecturerQuizController::class, 'details'])->name('quiz_details');
     Route::get('/add_question/{quizID}', [LecturerQuizController::class, 'add_question'])->name('add_question');
     Route::get('/attendance_index/{id}', [LecturerAttendanceController::class, 'index'])->name('attendance_index');
-    Route::get('/announcement_index/{id}', [AnnouncementController::class, 'index'])->name('announcement_index');
     Route::get('/assignment_index/{id}', [LecturerAssignmentController::class, 'index'])->name('assignment_index');
     Route::post('/add_assignment', [LecturerAssignmentController::class, 'add_assignment'])->name('add_assignment');
     Route::get('/delete_assignment/{id}', [LecturerAssignmentController::class, 'delete_assignment'])->name('delete_assignment');
@@ -114,6 +120,13 @@ Route::group([
     Route::post('/add_question_post', [LecturerQuizController::class, 'add_question_post'])->name('add_question_post');
     Route::get('/quiz_submissions/{quizID}', [LecturerQuizController::class, 'view_submissions'])->name('quiz_submissions');
     Route::get('/quiz_preview_submission/{quizID}/{studentID}', [LecturerQuizController::class, 'preview_submission'])->name('preview_quiz_submission');
+    //Route::get('/announcement_index/{id}', [AnnouncementController::class, 'index'])->name('announcement_index');
+    Route::get('/announcement_index', [AnnouncementController::class, 'index'])->name('announcement_index');
+    Route::post('/add_announcement', [AnnouncementController::class, 'add_announcement'])->name('add_announcement');
+    Route::patch('/edit_announcements/{id}/edit', [AnnouncementController::class, 'edit_announcement'])->name('edit_announcement');
+    Route::delete('/delete_announcements/{id}', [AnnouncementController::class, 'delete_announcement'])->name('delete_announcement');
+
+
 });
 
 
