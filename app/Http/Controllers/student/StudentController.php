@@ -102,8 +102,8 @@ class StudentController extends Controller
     // Method to show assignment page
     public function showAssignment($id)
     {
-        $courseID=$id;
-        return view('student.assignment.tobe_assignment',compact('courseID'));
+        $courseID=$id; //lecturerCourseID
+        return redirect()->route('student.tobe_completed', ['id' => $courseID]);
     }
 
     // Method to show attendance page
