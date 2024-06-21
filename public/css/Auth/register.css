@@ -84,3 +84,12 @@ button {
 button:hover {
     background-color: #5555cc; /* Button hover background color */
 }
+
+.mb-4 {
+    color: red;
+}
+
+.validation-errors {
+    white-space: pre-wrap;
+    color: red;
+}

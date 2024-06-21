@@ -24,8 +24,8 @@
 
 <h3> <b>BITM 2223 Machine Learning</b> </h3>
 <div class="inline-h3">
-    <h6><a href="{{ route('student.tobe_completed') }}">TO-BE-COMPLETED</a></h6>
-    <h6><a href="{{ route('student.completed_assignments') }}" class="active">COMPLETED</a></h6>
+    <h6><a href="{{ route('student.tobe_completed', ['id' => session('lecturerCourseID')]) }}">TO-BE-COMPLETED</a></h6>
+    <h6><a href="{{ route('student.completed_assignments', ['id' => session('lecturerCourseID')]) }}" class="active">COMPLETED</a></h6>
 </div>
 
 <br>
@@ -41,21 +41,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <tbody>
-                                <tr>
-                                    <td class="table-cell">
-                                       Assignment 3: Desion Tree
-                                       <a href="{{ route('student.view_feedback', ['id' => 3]) }}">View Feedback</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-cell">
-                                       Assignment 4: Candidate Elimination
-                                       <a href="{{ route('student.view_feedback', ['id' => 4]) }}">View Feedback</a>
-                                    </td>
-                                </tr>
-                                <!-- Add more rows as needed -->
+                        @foreach($completedAssignments as $completedAssignment)
+                            <tr>
+                                <td class="table-cell">
+                                    {{$completedAssignment->assignment->title}}
+                                    <a href="{{ route('student.view_feedback', ['id' => $completedAssignment->assignmentID]) }}">View Feedback</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
