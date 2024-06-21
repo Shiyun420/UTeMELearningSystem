@@ -10,7 +10,6 @@
     }
 </style>
 
-
 <h3> BITM 2113 WEB APPLICATION DEVELOPMENT </h3>
 <i class="fa-solid fa-volume-high"></i> ANNOUNCEMENT
 <p> Tuesday class is cancelled</p>
@@ -56,6 +55,5 @@
                 <a href="#" class="btn-details">Details</a>
             </div>
         </div>
-        
 </div>
 @endsection

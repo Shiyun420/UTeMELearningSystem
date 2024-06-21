@@ -38,13 +38,22 @@ class CourseController extends Controller
 
     // Method for displaying all lecturers assigned to a course
     public function course_details($id){
+
         $course=Course::find($id);
-        $lecturers=User::where('usertype', 'lecturer')->get();
-        $assigned_lecturers = User::whereIn('id', function($query) use ($id) {
-            $query->select('lecturerID')
-                  ->from('lecturer_courses')
-                  ->where('courseID', $id);
-        })->get();
+        // Select all lecturers who are not assigned to the specific course
+        $lecturers = User::where('usertype', 'lecturer')
+            ->whereNotIn('id', function($query) use ($id) {
+                $query->select('lecturerID')
+                    ->from('lecturer_courses')
+                    ->where('courseID', $id);
+            })->get();
+        //Select all lecturers who are assigned to the specific course
+        $assigned_lecturers = User::where('usertype', 'lecturer')
+            ->whereIn('id', function($query) use ($id) {
+                $query->select('lecturerID')
+                    ->from('lecturer_courses')
+                    ->where('courseID', $id);
+            })->get();
 
         return view('admin.course_details',compact('course', 'lecturers', 'assigned_lecturers'));
     }
@@ -60,6 +69,4 @@ class CourseController extends Controller
 
         return redirect()->back();
     }
-
-    //test changes
 }

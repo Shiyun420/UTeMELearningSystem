@@ -22,36 +22,29 @@
 </style>
 
 
-<h3> <b>BITM 2223 Machine Learning</b> </h3>
+<h3> <b>{{ session('course')->code }} {{ session('course')->name }}</b> </h3>
 <div class="inline-h3">
-    <h6><a href="{{ route('student.tobe_completed') }}" class="active">TO-BE-COMPLETED</a></h6>
-    <h6><a href="{{ route('student.completed_assignments') }}">COMPLETED</a></h6>
+    <h6><a href="{{ route('student.tobe_completed', ['id' => session('lecturerCourseID')]) }}" class="active">TO-BE-COMPLETED</a></h6>
+    <h6><a href="{{ route('student.completed_assignments', ['id' => session('lecturerCourseID')]) }}">COMPLETED</a></h6>
 </div>
 
 <br>
 
-<table class="table">
-                    <thead style="background-color:#acb984;">
-                        <tr>
-                            <th scope="col">Assignment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <tbody>
-                                <tr>
-                                    <td class="table-cell">
-                                       Assignment 1: FlipGrid
-                                       <a href="{{ route('student.add_submission') }}">Add submission</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-cell">
-                                       Assignment 2: Mindmap
-                                       <a href="{{ route('student.add_submission') }}">Add submission</a>
-                                    </td>
-                                </tr>
-                                <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
+    <table class="table">
+        <thead style="background-color:#acb984;">
+            <tr>
+                <th scope="col">Assignment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($assignments as $assignment)
+            <tr>
+                <td class="table-cell">
+                    {{$assignment->title}}
+                    <a href="{{ route('student.add_submission', ['id' => $assignment->id]) }}">Add submission</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endsection

@@ -3,26 +3,63 @@
 namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Submission; // Assuming you have a Submission model
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\Assignment;
+use App\Models\Course;
+use App\Models\LecturerCourse;
+use App\Models\StudentAssignment;
 
 class AssignmentController extends Controller
 {
     // Method to show the submission form
-    public function showToBeCompleted()
+    public function showToBeCompleted($id)
     {
-        // Logic to fetch the "to-be-completed" assignments
-        return view('student.assignment.tobe_assignment');
+        $lecturerCourseID=$id;
+        $lecturerCourse = LecturerCourse::where('id', $lecturerCourseID)
+                                ->with('course')
+                                ->first();
+        $course = $lecturerCourse->course;
+        session(['lecturerCourseID' => $id]);
+        session(['course' => $course]);
+
+        $assignments = Assignment::where('lecturerCourseID', $lecturerCourseID)
+                        ->whereNotIn('id', function ($query) {
+                            $query->select('assignmentID')
+                                ->from('student_assignments')
+                                ->where('studentID', Auth::id());
+                        })
+                        ->orderBy('updated_at', 'desc')
+                        ->get();
+
+        return view('student.assignment.tobe_assignment', compact('assignments'));
     }
 
     public function showCompleted()
     {
+        $lecturerCourseID=session('lecturerCourseID');
+
+        //retrieve completed assignments
+        $completedAssignments = StudentAssignment::where('studentID', Auth::id())
+            ->whereIn('assignmentID', function ($query) use ($lecturerCourseID) {
+                $query->select('id')
+                      ->from('assignments')
+                      ->where('lecturerCourseID', $lecturerCourseID);
+            })
+            ->with('assignment')
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
         // Logic to fetch the "completed" assignments
-        return view('student.assignment.completed_assignments');
+        return view('student.assignment.completed_assignments', compact('completedAssignments'));
     }
 
-    public function showSubmissionForm()
-    {
-        return view('student.assignment.add_submission');
+    public function showSubmissionForm($id)
+    {   
+
+        $assignment = Assignment::find($id);
+        
+        return view('student.assignment.add_submission', compact('assignment'));
     }
 
     // Method to submit the assignment
@@ -38,15 +75,16 @@ class AssignmentController extends Controller
             $file = $request->file('file');
 
             // Save the file to the storage directory
-            $path = $file->store('assignments');
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('assignmentsubmission'), $fileName);
 
             // Create a new Submission record in the database
-            $submission = new Submission();
-            $submission->file_path = $path;
+            $submission = new StudentAssignment();
+            $submission->assignmentID = $request->input('assignmentID');
+            $submission->studentID = Auth::id();
+            $submission->fileLocation = $fileName;
             $submission->save();
-
-            // Optionally, you can do more with the submission data (e.g., associate it with a specific assignment)
-
+            
             // Redirect back with a success message
             return back()->with('success', 'Assignment submitted successfully.');
         }
@@ -54,11 +92,17 @@ class AssignmentController extends Controller
         // If file upload fails, redirect back with an error message
         return back()->with('error', 'File upload failed.');
     }
+    
     public function viewFeedback($id)
     {
-      
+        $lecturerCourseID=session('lecturerCourseID');
 
-        return view('student.assignment.view_feedback');
+        //retrieve completed assignments
+        $submittedAssignment = StudentAssignment::where('studentID', Auth::id())
+                        ->where('assignmentID', $id)
+                        ->with('assignment')
+                        ->first();
+        return view('student.assignment.view_feedback', compact('submittedAssignment'));
     }
 }
 

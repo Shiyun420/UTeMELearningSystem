@@ -41,3 +41,8 @@ input {
     font-weight: bolder;
     color:black;
 }
+
+#icError, #phoneError, #passwordError, #passwordConfirmationError {
+    color: red;
+    display: none;
+}

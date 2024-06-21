@@ -5,78 +5,50 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="">BITM 2223 WEB APPLICATION DEVELOPMENT</a></li>  
-    <li class="breadcrumb-item"><a href="#">Assignment</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('lecturer.assignment_index', ['id' => session('lecturerCourseID')]) }}">Assignment</a></li>
     <li class="breadcrumb-item active" aria-current="page">View Submission</li>
   </ol>
 </nav>
 
-
-<h2>Assignment 1: Case Study</h2>
+<h2>{{ session('course')->code }} {{ session('course')->name }} - {{$assignment->title}}</h2>
+<br/>
 
 <table class="mx-auto">
   <thead style="background-color:#acb984;">
     <tr>
       <th scope="col" class="p-2">NO</th>
       <th scope="col" class="p-2">Student</th>
+      <th scope="col" class="p-2">Status</th>
       <th scope="col" class="p-2">Feedback</th>
       <th scope="col" class="p-2" style="width:100px;">Action</th>
     </tr>
   </thead>
   <tbody>
-  <tr>
-        <td class="p-2">1</td>
-        <td class="p-2">Wan Irdina Binti Muhammad Ahmad</td>
-        <td class="p-2">Good Job</td>
-        <td>
-          <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex p-2">
-          <a href="{{ route('lecturer.quiz_details') }}">
-              <i class="fas fa-eye"></i>
-          </a>
-          <a href="{{ route('lecturer.assignment_give_feedback') }}">
-              <i class="fas fa-edit"></i>
-          </a>
-        </div>
-
-        
-        </td>
-    </tr>
+    @foreach ($studentAssignments as $index => $studentAssignment)
     <tr>
-        <td class="p-2">1</td>
-        <td class="p-2">Wan Irdina Binti Muhammad Ahmad</td>
-        <td class="p-2">Good Job</td>
+        <td class="p-2">{{$index + 1}}</td>
+        <td class="p-2">{{$studentAssignment->name}}</td>
+        @if($studentAssignment->assignmentID)
+        <td class="p-2">Submitted</td>
+        @else
+        <td class="p-2" style="color:red;">Not Submitted</td>
+        @endif
+        @if($studentAssignment->feedback)
+        <td class="p-2">{{$studentAssignment->feedback}}</td>
+        @else
+        <td class="p-2">-</td>
+        @endif
         <td>
-          <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex p-2">
-          <a href="{{ route('lecturer.quiz_details') }}">
-              <i class="fas fa-eye"></i>
-          </a>
-          <a href="{{ route('lecturer.assignment_give_feedback') }}">
-              <i class="fas fa-edit"></i>
-          </a>
-        </div>
-
-        
+          @if($studentAssignment->assignmentID)
+            <div class="d-flex p-2">
+              <a href="{{route('lecturer.assignment_give_feedback', ['studentID' => $studentAssignment->id, 'assignmentID' => $assignment->id])}}">
+                  <i class="fas fa-edit"></i>
+              </a>
+            </div>
+          @endif
         </td>
     </tr>
-    <tr>
-        <td class="p-2">1</td>
-        <td class="p-2">Wan Irdina Binti Muhammad Ahmad</td>
-        <td class="p-2">Good Job</td>
-        <td>
-          <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex p-2">
-          <a href="{{ route('lecturer.quiz_details') }}">
-              <i class="fas fa-eye"></i>
-          </a>
-          <a href="{{ route('lecturer.assignment_give_feedback') }}">
-              <i class="fas fa-edit"></i>
-          </a>
-        </div>      
-        </td>
-    </tr>
-  
+    @endforeach
   </tbody>
 </table>
     
