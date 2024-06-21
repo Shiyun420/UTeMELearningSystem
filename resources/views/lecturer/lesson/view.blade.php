@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="{{url('css/lecturer/lesson.css')}}">
 
-<h2>{{ session('course')->name }}</h2>
+<h2>{{session('course')->code}} {{session('course')->name}}</h2>
 
 <a href="{{ route('lecturer.add_lesson') }}">
     <button class="add-btn"><i class="fa-solid fa-plus"></i>Add Lesson</button>
@@ -20,7 +20,7 @@
     <div class="card">
         <img src="{{ asset('images/lessons/' . $lesson->attribute) }}" class="card-img-top" alt="Lesson Image">
         <div class="card-body">
-            <h5 class="card-title">{{ $lesson->title }}</h5>
+            <h5 class="card-title">Chapter {{ $lesson->chapter }}: {{ $lesson->title }}</h5>
             <p class="card-text">{{ $lesson->description }}</p>
             <a href="{{ route('lecturer.lesson_detail',['id' => $lesson->id]) }}" class="btn-details">Details</a>
             <a href="{{ route('lecturer.edit_lesson',['id' => $lesson->id]) }}" class="btn-details">Edit</a>

@@ -3,10 +3,11 @@
 @section('content')
 <link rel="stylesheet" href="{{url('css/lecturer/lesson.css')}}">
 
+<h2>{{session('course')->code}} {{session('course')->name}}</h2>
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="BITI 2223 MACHINE LEARNING">Course</a></li>
-    <li class="breadcrumb-item"><a href="#">LESSON</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('lecturer.view_lesson',['id' => session('lecturerCourseID')]) }}">LESSON</a></li>
     <li class="breadcrumb-item active" aria-current="page">EDIT LESSON</li>
   </ol>
 </nav>
@@ -35,9 +36,13 @@
             <label for="chapter">Chapter:</label>
             <input type="chapter" id="chapter" name="chapter" value="{{ old('chapter', $lesson->chapter) }}">
         </div>
+
         <div class="form-group">
+            <div class="d-flex align-items-start">
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="4" cols="50">{{ old('description', $lesson->description) }}</textarea>
+            </div>
+            
         </div>
 
         <div class="form-group">

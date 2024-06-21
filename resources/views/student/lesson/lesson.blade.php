@@ -16,7 +16,10 @@
 
 <h3>{{ session('course')->name }}</h3>
 <i class="fa-solid fa-volume-high"></i> ANNOUNCEMENT
-<p> Tuesday class is cancelled</p>
+@foreach($announcements as $announcement)
+    <p> {{ $announcement->created_at->format('d M Y') }}  - {{ $announcement->details }}</p>
+@endforeach
+
 
 <div class="card-container">
     @foreach ($lessons as $lesson)

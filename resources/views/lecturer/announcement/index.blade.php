@@ -54,6 +54,8 @@
   </div>
 </div>
 @endforeach
+
+<h2>{{session('course')->code}} {{session('course')->name}}</h2>
 <!-- Button trigger modal -->
 <button type="button" class="add-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add Announcement
@@ -85,11 +87,11 @@
         <td class="p-2">{{ $announcement->details }}</td>
         <td>
           <!-- Button group with icons for view, edit, delete -->
-        <div class="d-flex justify-content-between p-2">
-            <a href="" data-bs-toggle="modal" data-bs-target="#editModal{{$announcement->id}}">
+        <div class="d-flex justify-content-between w-50 mx-auto">
+            <a class="p-2" href="" data-bs-toggle="modal" data-bs-target="#editModal{{$announcement->id}}">
                 <i class="fas fa-edit"></i>
             </a>
-            <a href="#" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this announcement?')) { document.getElementById('delete-form-{{$announcement->id}}').submit(); }">
+            <a href="#" class="p-2" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this announcement?')) { document.getElementById('delete-form-{{$announcement->id}}').submit(); }">
                 <i class="fas fa-trash-alt"></i>
               </a>
               <form id="delete-form-{{$announcement->id}}" action="{{ route('lecturer.delete_announcement',['id' => $announcement -> id] ) }}" method="POST" style="display: none;">

@@ -9,6 +9,7 @@ use App\Models\Course;
 use App\Models\LecturerCourse;
 use App\Models\Enrollment;
 use App\Models\Lesson;
+use App\Models\Announcement;
 
 class StudentController extends Controller
 {
@@ -18,7 +19,7 @@ class StudentController extends Controller
             ->join('courses as c', 'c.id', '=', 'lc.courseID')
             ->join('users as u', 'u.id', '=', 'lc.lecturerID')
             ->where('enrollments.studentID', Auth::user()->id)
-            ->select('lc.courseID as courseID', 'c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
+            ->select('lc.id as courseID', 'c.code as course_code', 'c.name as course_name', 'u.name as lecturer_name')
             ->get();
 
         return view('student.list_course', compact('enrolledCourses'));
@@ -59,7 +60,7 @@ class StudentController extends Controller
         $course = Course::find($lecturercourse->courseID);
 
         //Retrieve the LecturerCourse that user has enrolled
-        $enrolledCourses = LecturerCourse::whereIn('courseID', function($query) {
+        $enrolledCourses = LecturerCourse::whereIn('id', function($query) {
             $query->select('courseID')
                   ->from('enrollments')
                   ->where('studentID', Auth::user()->id);
@@ -92,8 +93,8 @@ class StudentController extends Controller
         $course = $lecturerCourse->course;
         session(['course' => $course]);
         $lessons = Lesson::where('courseID', $id)->get();
-
-        return view('student.lesson.lesson',compact('lessons'));
+        $announcements=Announcement::where('courseID', $id)->get();
+        return view('student.lesson.lesson',compact('lessons'),compact('announcements'));
 
     }
 
