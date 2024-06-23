@@ -7,19 +7,23 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ route('student.lesson', ['id' => session('lecturerCourseID')])}}">Lesson</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('student.lesson', ['id' => session('lecturerCourseID')])}">Lesson</a></li>
     <li class="breadcrumb-item active" aria-current="page">
     @foreach ($lessons as $lesson)
         Chapter {{ $lesson->chapter }}: {{ $lesson->title }}
     @endforeach
     </li>
-  </ol>
+  </ol>
 </nav>
 
 <div class="preview-container">
     @foreach ($lessons as $lesson)
-        <div class="pdf-preview">
-            <object data="{{ asset('images/lessons/'. $lesson->fileLocation) }}" type="{{ File::mimeType(public_path('images/lessons/'. $lesson->fileLocation)) }}" width="100%" height="600px;">
+        <div class="mt-2 mb-2">
+        <h5 class="card-title">Chapter {{ $lesson->chapter }}: {{ $lesson->title }}</h5>
+        <p class="card-text">{{ $lesson->description }}</p>
+        </div>
+        <div class="pdf-preview" style="width: 100%; height: 600px;">
+            <object data="{{ asset('images/lessons/'. $lesson->fileLocation) }}" type="{{ File::mimeType(public_path('images/lessons/'. $lesson->fileLocation)) }}" width="100%" height="100%">
                 @if(str_contains($lesson->fileLocation, '.pdf'))
                     <p>Your browser does not support PDFs. <a href="{{ asset('images/lessons/'. $lesson->fileLocation) }}">Download the PDF</a>.</p>
                 @elseif(str_contains($lesson->fileLocation, '.ppt'))
