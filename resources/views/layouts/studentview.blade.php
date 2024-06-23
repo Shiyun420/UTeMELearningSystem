@@ -61,7 +61,7 @@
     </nav>
 
       <!-- Sidebar -->
-      <main>
+      <main style="padding-top:100px;">
          @yield('content') <!-- Inject content here -->
       </main>
    </body>
