@@ -14,7 +14,9 @@
 </style>
 
 
+
 <h3>{{ session('course')->name }}</h3>
+
 <i class="fa-solid fa-volume-high"></i> ANNOUNCEMENT
 @foreach($announcements as $announcement)
     <p> {{ $announcement->created_at->format('d M Y') }}  - {{ $announcement->details }}</p>

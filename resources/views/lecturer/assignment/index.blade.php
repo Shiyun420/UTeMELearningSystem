@@ -49,7 +49,7 @@
   <thead style="background-color:#acb984;">
     <tr>
       <th scope="col" class="p-2">Assignment</th>
-      <th scope="col" class="p-2" style="width:100px;">Action</th>
+      <th scope="col" class="p-2" style="width:80px;">Action</th>
     </tr>
   </thead>
   <tbody>

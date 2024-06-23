@@ -22,7 +22,7 @@
 </style>
 
 
-<h3> <b>{{ session('course')->code }} {{ session('course')->name }}</b> </h3>
+<h3> {{ session('course')->code }} {{ session('course')->name }} </h3>
 <div class="inline-h3">
     <h6><a href="{{ route('student.tobe_completed', ['id' => session('lecturerCourseID')]) }}" class="active">TO-BE-COMPLETED</a></h6>
     <h6><a href="{{ route('student.completed_assignments', ['id' => session('lecturerCourseID')]) }}">COMPLETED</a></h6>

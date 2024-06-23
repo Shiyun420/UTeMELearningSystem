@@ -23,6 +23,12 @@ class LecturerController extends Controller
               
     }
 
+    public function view_lecturer($id){
+
+        $lecturer = User::find($id);
+        return view('admin.view_lecturer', compact('lecturer'));
+    }
+
     public function register_lecturer(Request $request)
     {
         $lecturer=new User;

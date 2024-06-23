@@ -51,6 +51,6 @@
         <button class="btn-submit" type="submit" onclick="check(event)">Submit</button>
     </div>
 </form>
-    
+</div>    
 @endsection
 
