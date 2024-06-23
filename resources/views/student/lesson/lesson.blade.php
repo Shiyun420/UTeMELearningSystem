@@ -13,6 +13,8 @@
 
 </style>
 
+
+
 <h3>{{ session('course')->name }}</h3>
 
 <i class="fa-solid fa-volume-high"></i> ANNOUNCEMENT
@@ -31,6 +33,7 @@
             <p class="card-text">{{ $lesson->description }}</p>
             <a href="{{ route('student.lesson_detail',['id' => $lesson->id]) }}" class="btn-details">Details</a>
         </div>
+
     </div>
     @endforeach
 </div>
