@@ -13,7 +13,6 @@
 
 </style>
 
-<h3> BITM 2113 WEB APPLICATION DEVELOPMENT </h3>
 <h3>{{ session('course')->name }}</h3>
 
 <i class="fa-solid fa-volume-high"></i> ANNOUNCEMENT

@@ -128,7 +128,8 @@ Route::group([
     Route::post('/add_announcement', [AnnouncementController::class, 'add_announcement'])->name('add_announcement');
     Route::patch('/edit_announcements/{id}/edit', [AnnouncementController::class, 'edit_announcement'])->name('edit_announcement');
     Route::delete('/delete_announcements/{id}', [AnnouncementController::class, 'delete_announcement'])->name('delete_announcement');
-
+    Route::get('/edit_question/{questionID}', [LecturerQuizController::class, 'edit_question'])->name('edit_question');
+    Route::post('/edit_question_post/{questionID}', [LecturerQuizController::class, 'edit_question_post'])->name('edit_question_post');
 
 });
 
