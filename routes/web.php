@@ -51,8 +51,11 @@ Route::group([
     'namespace' => 'Admin'
 ], function () {
     Route::get('/showcourses', [CourseController::class, 'showcourses'])->name('showcourses');
+    Route::get('/display_edit_course/{id}', [CourseController::class, 'display_edit_course'])->name('displayCourse');
+    Route::post('edit_course/{id}', [CourseController::class, 'edit_course'])->name('edit_course');
     Route::get('/showlecturers', [LecturerController::class, 'showlecturers'])->name('showlecturers');
     Route::get('/add_lecturer',[LecturerController::class,'add_lecturer'])->name('add_lecturer');
+    Route::get('/view_lecturer/{id}', [LecturerController::class, 'view_lecturer'])->name('view_lecturer');
     Route::get('/add_course',[CourseController::class,'add_course'])->name('add_course');
     Route::post('register_lecturer', [LecturerController::class, 'register_lecturer'])->name('register_lecturer');
     Route::post('register_course', [CourseController::class, 'register_course'])->name('register_course');
@@ -71,12 +74,8 @@ Route::group([
     Route::get('/course_details/{id}', [StudentController::class, 'course_details'])->name('course_details');
     Route::post('/enroll_course',[StudentController::class,'enroll_course'])->name('enroll_course');
     Route::get('/lesson/{id}', [StudentController::class, 'showLesson'])->name('lesson');
-
-   
     Route::get('/add-submission/{id}', [StudentAssignmentController::class, 'showSubmissionForm'])->name('add_submission');
-
     Route::get('/lessons/lesson_detail{id}', [StudentLessonController::class, 'show'])->name('lesson_detail');
-   
     Route::post('/submit-assignment', [StudentAssignmentController::class, 'submitAssignment'])->name('submit_assignment');
     Route::get('/assignment/{id}', [StudentController::class, 'showAssignment'])->name('assignment');
     Route::get('/assignments/tobe-completed/{id}', [StudentAssignmentController::class, 'showToBeCompleted'])->name('tobe_completed');

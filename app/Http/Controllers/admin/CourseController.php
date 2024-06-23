@@ -23,6 +23,21 @@ class CourseController extends Controller
 
     }
 
+    public function display_edit_course($id){
+        $course = Course::find($id);
+        return view('admin.edit_course', compact('course'));
+    }
+
+    public function edit_course(Request $request, $id){
+        $course=Course::find($id);
+        $course->code=$request->code;
+        $course->name=$request->name;
+        $course->description = $request->description;
+        
+        $course->save();
+        return redirect()->back()->with('message', 'Course Updated Successfully');
+    }
+
     public function register_course(Request $request)
     {
         $course=new Course;

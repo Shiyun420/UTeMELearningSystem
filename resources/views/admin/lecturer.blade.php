@@ -38,14 +38,8 @@
           <td>
             <!-- Button group with icons for view, edit, delete -->
             <div class="d-flex justify-content-between p-2">
-              <a href="#">
+              <a href="{{route('admin.view_lecturer',$lecturer->id)}}">
                 <i class="fas fa-eye"></i>
-              </a>
-              <a href="#">
-                <i class="fas fa-edit"></i>
-              </a>
-              <a href="#">
-                <i class="fas fa-trash-alt"></i>
               </a>
             </div>
           </td>

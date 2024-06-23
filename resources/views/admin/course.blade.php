@@ -12,7 +12,7 @@
   <thead style="background-color:#acb984;">
     <tr>
       <th scope="col" class="p-2">COURSE</th>
-      <th scope="col" class="p-2" style="width:100px;">ACTIONS</th> <!-- Add a new table header for actions -->
+      <th scope="col" class="p-2" style="width:90px;">ACTIONS</th> <!-- Add a new table header for actions -->
     </tr>
   </thead>
   <tbody>
@@ -26,11 +26,8 @@
             <a href="{{route('admin.course_details',$course->id)}}">
                 <i class="fas fa-eye"></i>
             </a>
-            <a href="edit-url">
+            <a href="{{route('admin.displayCourse',$course->id)}}">
                 <i class="fas fa-edit"></i>
-            </a>
-            <a href="delete-url">
-                <i class="fas fa-trash-alt"></i>
             </a>
           </div>
           </td>
