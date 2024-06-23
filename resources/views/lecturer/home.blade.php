@@ -19,7 +19,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="#">My Courses</a>
+                  <a class="nav-link active" aria-current="page" href="{{route('lecturer.home')}}">My Courses</a>
                </div>
                <div class="dropdown ms-auto">
                   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

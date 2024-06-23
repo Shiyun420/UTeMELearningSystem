@@ -22,7 +22,7 @@
 </style>
 
 
-<h3> <b>BITM 2223 Machine Learning</b> </h3>
+<h3> {{ session('course')->code }} {{ session('course')->name }} </h3>
 <div class="inline-h3">
     <h6><a href="{{ route('student.tobe_completed', ['id' => session('lecturerCourseID')]) }}">TO-BE-COMPLETED</a></h6>
     <h6><a href="{{ route('student.completed_assignments', ['id' => session('lecturerCourseID')]) }}" class="active">COMPLETED</a></h6>
